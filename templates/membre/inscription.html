@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+{% block contenu %}
+
+<div class="col-md-6">
+    <div class="card card-body">
+        <form class="was-validated" method="POST" action="" name="form">
+            {% csrf_token %}
+            <!--            <label for="validationNameInput" class="form-label">Nom</label>-->
+            <!--            <input type="text" class="form-control is-invalid" name="name" id="validationNameInput" placeholder="Nom et prénom"-->
+            <!--                   required>-->
+
+            <!--            <div class="form-floating mb-3">-->
+            <!--                <label for="floatingInput">Email</label>-->
+            <!--                <input type="email" class="form-control is-invalid" name="email" id="floatingInput" placeholder="nom@exemple.com"-->
+            <!--                       required>-->
+            <!--            </div>-->
+            <!--            <div class="form-floating">-->
+            <!--                <label for="floatingPassword">Mot de passe</label>-->
+            <!--                <input type="password" class="form-control is-invalid" name="pswd" id="floatingPassword" placeholder="Password"-->
+            <!--                       required>-->
+            <!--            </div>-->
+            <!--            </br>-->
+            <!--            <div class="mb-3">-->
+            <!--                <label>Rôle</label>-->
+            <!--                </br>-->
+            <!--                <select class="form-select" required aria-label="select example" name="role">-->
+            <!--                    <option value="">Choisissez votre rôle</option>-->
+            <!--                    <option value="Entreprise">Entreprise</option>-->
+            <!--                    <option value="Investisseur">Investisseur</option>-->
+            <!--                    <option value="Posteur de Projet">Posteur de Projet</option>-->
+            <!--                    <option value="Auto-entrepreneur">Auto-entrepreneur</option>-->
+            <!--                </select>-->
+            <!--            </div>-->
+            <!--            </br>-->
+            {{ form }}
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+    </div>
+    </br>
+    <a href="{% url 'liste_membre' %}" class="btn btn-secondary">Voir les membres</a>
+</div>
+{% endblock %}

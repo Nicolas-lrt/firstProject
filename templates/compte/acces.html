@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block contenu %}
+
+<h1>Accès</h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <p>
+        <input type="text" name="username" placeholder="Nom d'utilisateur...">
+    </p>
+    <p>
+        <input type="password" name="password" placeholder="Mot de passe...">
+    </p>
+    <input type="submit" value="Se connecter">
+</form>
+{% for msg in messages %}
+<p id="message">{{msg}}</p>
+{% endfor %}
+
+<p>Pas de compte ? <a href="{% url 'inscription' %}">Créer un compte</a></p>
+
+{% endblock %}

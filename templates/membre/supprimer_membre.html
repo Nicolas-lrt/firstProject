@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block contenu %}
+<div class="col-md-10">
+    <div class="card card-body">
+        <h4>Voulez vous supprimer le membre {{item.nom}} ?</h4>
+        <form action="{% url 'supprimer_membre' item.id %}" method="POST">
+
+            {% csrf_token %}
+            <a class="btn btn-warning" href="{% url 'liste_membre' %}">Annuler</a>
+            <input type="submit" class="btn btn-danger" value="Confirmer">
+
+        </form>
+    </div>
+</div>
+{% endblock %}

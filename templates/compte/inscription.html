@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block contenu %}
+
+<h1>Inscription</h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {% for champ in form %}
+
+    {{ champ.label }}
+    {{ champ }}
+    {{ champ.errors }}
+
+    </br>
+    {% endfor %}
+
+    <input type="submit" value="Confirmer">
+    <p>Déjà un compte ? <a href="{% url 'acces' %}">Se connecter</a></p>
+
+</form>
+
+{% endblock %}

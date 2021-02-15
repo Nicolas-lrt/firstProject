@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% block contenu %}
+
+<br>
+<div class="row">
+    <div class="col-md-10">
+        <h5>Membres :</h5>
+        <hr>
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Mail</th>
+                    <th>Role</th>
+                    <th>Date d'ajout</th>
+                </tr>
+                {% for membre in membres %}
+                <tr>
+                    <th>{{membre.id}}</th>
+                    <th>{{membre.nom}}</th>
+                    <th>{{membre.email}}</th>
+                    <th>{{membre.role}}</th>
+                    <th>{{membre.date_creation}}</th>
+                    <th><a class="btn btn-info" href="{% url 'modifier_membre' membre.id %}">Modifier</a></th>
+                    <th><a class="btn btn-danger" href="{% url 'supprimer_membre' membre.id %}">Supprimer</a></th>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        </br>
+        </br>
+        <a class="btn btn-primary" href="{% url 'membre' %}">Ajouter un membre</a>
+    </div>
+
+
+</div>
+{% endblock %}
