@@ -33,7 +33,13 @@
             <!--                </select>-->
             <!--            </div>-->
             <!--            </br>-->
-            {{ form }}
+            {% for champ in form %}
+
+            {{ champ.label }} :
+            {{ champ }}
+            {{ champ.errors }}
+            </br>
+            {% endfor %}
             <button type="submit" class="btn btn-primary">Valider</button>
         </form>
     </div>

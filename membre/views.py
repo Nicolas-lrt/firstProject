@@ -1,13 +1,14 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-
+from compte.decorators import allowed_users
 from membre.forms import ajout_form
 from membre.models import Membre
 
 
 # Create your views here.
 @login_required(login_url='acces')
+@allowed_users(allowed_roles=['admin'])
 def ajouter_membre(request):
     form = ajout_form()
     if request.method == 'POST':
@@ -30,6 +31,7 @@ def liste_membre(request):
 
 
 @login_required(login_url='acces')
+@allowed_users(allowed_roles=['admin'])
 def modifier_membre(request, pk):
     membre = Membre.objects.get(id=pk)
     form = ajout_form(instance=membre)
@@ -46,6 +48,7 @@ def modifier_membre(request, pk):
 
 
 @login_required(login_url='acces')
+@allowed_users(allowed_roles=['admin'])
 def supprimer_membre(request, pk):
     membre = Membre.objects.get(id=pk)
     if request.method == 'POST':
