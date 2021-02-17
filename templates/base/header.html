@@ -1,0 +1,71 @@
+<!-- Top Toolbar -->
+<div class="toolbar">
+    <div class="uou-block-1a blog">
+        <div class="container">
+            <div class="search"><a href="#" class="toggle fa fa-search"></a>
+                <form action="#">
+                    <input type="text" class="search-input" placeholder="Search ..."
+                           style="background-color: #E0E0E0; color: #5D5D5D">
+                    <input type="submit" value="">
+                </form>
+            </div>
+            <ul class="social">
+                <li><a href="#" class="fa fa-facebook"></a></li>
+                <li><a href="#" class="fa fa-twitter"></a></li>
+                <li><a href="#" class="fa fa-google-plus"></a></li>
+            </ul>
+            <ul class="authentication">
+
+                {% if request.user.is_anonymous %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                {% else %}
+                <li><label>Hello, {{ request.user }}</label></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% endif %}
+
+            </ul>
+            <div class="language"><a href="#" class="toggle"><img src="../static/images/flags/32/US.png" alt="">ENG</a>
+                <ul>
+                    <li><a href="#"><img src="../static/images/flags/32/PT.png" alt=""> PT</a></li>
+                    <li><a href="#"><img src="../static/images/flags/32/FR.png" alt=""> FR</a></li>
+                    <li><a href="#"><img src="../static/images/flags/32/ES.png" alt=""> ES</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- end .uou-block-1a -->
+</div>
+<!-- end toolbar -->
+<!-- underheader -->
+<div class="box-shadow-for-ui">
+    <div class="uou-block-2b">
+        <div class="container">
+            <a href="{% url 'home' %}" class="logo"><img src="../static/images/logo.png" alt=""></a>
+            <a href="#" class="mobile-sidebar-button mobile-sidebar-toggle"><span></span></a>
+            <nav class="nav">
+                <ul class="sf-menu">
+                    <li class="active"><a href="{% url 'home' %}"><i class="fa  fa-home"></i></a></li>
+                    <li><a href="listing-filter.html">Professionals</a></li>
+                    <li><a href="index.html">Pages</a>
+                        <ul>
+                            <li><a href="profile_company.html">Profile Company</a></li>
+                            <li><a href="profile_company-no-tabs.html">Profile Company No Tabs</a></li>
+                            <li><a href="user-dashboard(connections)(hotkeys-disabled).html">User Dashboard 1</a>
+                            </li>
+                            <li><a href="user-dashboard(connections)(hotkeys-enabled).html">User Dashboard 2</a>
+                            </li>
+                            <li><a href="user-dashboard(followers).html">User Dashboard 3</a></li>
+                            <li><a href="user-dashboard(following).html">User Dashboard 4</a></li>
+                            <li><a href="blog-post.html">Blog Post</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="user-profile(layout-1).html">User Profile</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="gui-kit.html">GUI KIT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+<!-- end .uou-block-2b -->
+</div>

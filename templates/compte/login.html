@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'base/head.html' %}
+</head>
+<body>
+<div id="main-wrapper">
+    {% include 'base/header.html' %}
+
+    <!-- HOME PRO-->
+    <div class="home-pro">
+
+        <!-- PRO BANNER HEAD -->
+        <div class="banr-head">
+            <div class="container">
+                <div class="row">
+
+                    <!-- FORM SECTION -->
+                    <div class="col-sm-5">
+                        <div class="login-sec">
+
+                            <!-- TABS -->
+                            <div class="uou-tabs">
+                                <ul class="tabs">
+                                    <li>
+                                        <a href="{% url 'register' %}">Register Now</a>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#log-in">Member Login</a>
+                                    </li>
+                                </ul>
+                                <div class="content">
+                                    <!--LOGIN -->
+                                    <div id="log-in" class="active">
+                                        <form method="POST" action=""  class="was-validated">
+                                            {% csrf_token %}
+                                            <input type="email" name="email" placeholder="Email Address">
+                                            <input type="password" name="password" placeholder="Password">
+                                            <button type="submit">Login</button>
+                                            <div class="login-with"><span>Or login with:</span> <a href="#."><i
+                                                    class="fa fa-facebook"></i></a> <a href="#."><i
+                                                    class="fa fa-google"></i></a> <a href="#."><i
+                                                    class="fa fa-linkedin"></i></a></div>
+                                            {% for msg in messages %}
+                                            <p id="message">{{msg}}</p>
+                                            {% endfor %}
+                                            <div class="forget">Forgot your password? <a href="#.">Click Here</a></div>
+                                        </form>
+
+                                    </div>
+                                    <div id="forget">
+                                        <form>
+                                            <input type="email" placeholder="Email Address">
+                                            <button type="submit">Login</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'base/footer.html' %}
+{% include 'base/scripts.html' %}
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'base/head.html' %}
+</head>
+<body>
+<div id="main-wrapper">
+    {% include 'base/header.html' %}
+
+    <!-- HOME PRO-->
+    <div class="home-pro">
+
+        <!-- PRO BANNER HEAD -->
+        <div class="banr-head">
+            <div class="container">
+                <div class="row">
+
+                    <!-- FORM SECTION -->
+                    <div class="col-sm-5">
+                        <div class="login-sec">
+
+                            <!-- TABS -->
+                            <div class="uou-tabs">
+                                <ul class="tabs">
+                                    <li class="active">
+                                        <a href="#">Register Now</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'login' %}">Member Login</a>
+                                    </li>
+                                </ul>
+
+                                <!-- REGISTER -->
+                                <div class="content">
+                                    <div id="register" class="active">
+                                        <form method="POST" action="">
+                                            <input type="text" placeholder="Full Name">
+                                            <input type="email" placeholder="Email Address">
+                                            <input type="text" placeholder="Phone">
+                                            <input type="password" placeholder="Password">
+                                            <select required aria-label="select example" name="role">
+                                                <option value="">Choisissez votre rôle</option>
+                                                <option value="Entreprise">Entreprise</option>
+                                                <option value="Investisseur">Investisseur</option>
+                                                <option value="Posteur de Projet">Posteur de Projet</option>
+                                                <option value="Auto-entrepreneur">Auto-entrepreneur</option>
+                                            </select>
+                                            <button type="submit">Register</button>
+                                            <div class="login-with">
+                                                <span>Or login with:</span>
+                                                <a href="#."><i class="fa fa-facebook"></i></a>
+                                                <a href="#."><i class="fa fa-google"></i></a>
+                                                <a href="#."><i class="fa fa-linkedin"></i></a>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% include 'base/footer.html' %}
+{% include 'base/scripts.html' %}
+
+</body>
+</html>

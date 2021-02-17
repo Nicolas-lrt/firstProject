@@ -12,20 +12,11 @@ from membre.forms import ajout_form
 # Create your views here.
 
 @unauthenticated_user
-def inscriptionPage(request):
+def registerPage(request):
     form = CreerUtilisateur()
-    formMembre = ajout_form()
     if request.method == 'POST':
         form = CreerUtilisateur(request.POST)
-        formMembre = ajout_form(request.POST)
         if form.is_valid():
-            # formMembre.Meta.fields = [
-            #     request.POST.get('username'),
-            #     request.POST.get('email'),
-            #     request.POST.get('password1'),
-            #     request.POST.get('role')
-            # ]
-            # formMembre.save()
 
             user = form.save()
             if request.POST.get('role') == 'Entreprise':
@@ -42,13 +33,15 @@ def inscriptionPage(request):
                 group.user_set.add(user)
 
             return redirect('acces')
-    context = {'form': form, 'formMembre': formMembre}
-    return render(request, 'compte/inscription.html', context)
+    context = {'form': form}
+    return render(request, 'compte/inscription2.html', context)
+
 
 @unauthenticated_user
-def accesPage(request):
+def loginPage(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
+        email = request.POST.get('email')
+        username = User.objects.get(email=email.lower()).username
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
@@ -56,10 +49,10 @@ def accesPage(request):
             return redirect('home')
         else:
             messages.info(request, "Utilisateur et/ou Mot de passe incorrect(s)")
-    context = {}
-    return render(request, 'compte/acces.html', context)
+
+    return render(request, 'compte/login.html')
 
 
 def logoutUser(request):
     logout(request)
-    return redirect('acces')
+    return redirect('home')
