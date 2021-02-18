@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include 'base/head.html' %}
-</head>
+{% extends 'main.html' %}
 
-<body>
-<div id="main-wrapper">
-
-    {% include 'base/header.html' %}
+{% block contenu %}
 
     <!-- HOME PRO-->
     <div class="home-pro">
@@ -279,11 +272,4 @@
         </div>
     </div>
 </div>
-
-{% include 'base/footer.html' %}
-{% include 'base/scripts.html' %}
-<script>
-
-</script>
-</body>
-</html>
+{% endblock %}
