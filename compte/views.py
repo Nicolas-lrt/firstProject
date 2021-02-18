@@ -21,26 +21,8 @@ def registerPage(request):
             user = form.save()
             group = Group.objects.get(name=role)
             group.user_set.add(user)
-            # if request.POST.get('role') == 'Entreprise':
-            #     group = Group.objects.get(name='Entreprise')
-            #     group.user_set.add(user)
-            # elif request.POST.get('role') == 'Investisseur':
-            #     group = Group.objects.get(name='Investisseur')
-            #     group.user_set.add(user)
-            # elif request.POST.get('role') == 'Posteur de projet':
-            #     group = Group.objects.get(name='Posteur de projet')
-            #     group.user_set.add(user)
-            # elif request.POST.get('role') == 'Auto-entrepreneur':
-            #     group = Group.objects.get(name='Auto-entrepreneur')
-            #     group.user_set.add(user)
-            # elif request.POST.get('role') == 'Auto-entrepreneur':
-            #     group = Group.objects.get(name='Auto-entrepreneur')
-            #     group.user_set.add(user)
-            # elif request.POST.get('role') == 'Auto-entrepreneur':
-            #     group = Group.objects.get(name='Auto-entrepreneur')
-            #     group.user_set.add(user)
-
             return redirect('login')
+
     context = {'form': form}
     return render(request, 'compte/inscription2.html', context)
 
