@@ -34,16 +34,22 @@
                                 <div class="content">
                                     <div id="register" class="active">
                                         <form method="POST" action="">
-                                            <input type="text" placeholder="Full Name">
-                                            <input type="email" placeholder="Email Address">
-                                            <input type="text" placeholder="Phone">
-                                            <input type="password" placeholder="Password">
+                                            {% csrf_token %}
+                                            {% for champ in form %}
+
+                                            {{champ.label}}
+                                            {{champ}}
+                                            {{champ.errors}}
+                                            {% endfor %}
+
                                             <select required aria-label="select example" name="role">
-                                                <option value="">Choisissez votre rôle</option>
-                                                <option value="Entreprise">Entreprise</option>
-                                                <option value="Investisseur">Investisseur</option>
-                                                <option value="Posteur de Projet">Posteur de Projet</option>
-                                                <option value="Auto-entrepreneur">Auto-entrepreneur</option>
+                                                <option value="">Choisissez votre catégorie</option>
+                                                <option value="Entrepreneurs">Entrepreneurs</option>
+                                                <option value="Porteurs de Projets">Porteurs de Projets</option>
+                                                <option value="Responsables Associatifs">Responsables Associatifs</option>
+                                                <option value="Leaders d'Opinions">Leaders d'Opinions</option>
+                                                <option value="Chercheurs d'Emplois">Chercheurs d'Emplois</option>
+                                                <option value="Professionnels tous Secteurs">Professionnels tous Secteurs</option>
                                             </select>
                                             <button type="submit">Register</button>
                                             <div class="login-with">

@@ -32,15 +32,16 @@
                                 <div class="content">
                                     <!--LOGIN -->
                                     <div id="log-in" class="active">
-                                        <form method="POST" action=""  class="was-validated">
+                                        <form method="POST" action="">
                                             {% csrf_token %}
-                                            <input type="email" name="email" placeholder="Email Address">
+                                            <input type="text" name="username" placeholder="Username">
                                             <input type="password" name="password" placeholder="Password">
                                             <button type="submit">Login</button>
                                             <div class="login-with"><span>Or login with:</span> <a href="#."><i
                                                     class="fa fa-facebook"></i></a> <a href="#."><i
                                                     class="fa fa-google"></i></a> <a href="#."><i
-                                                    class="fa fa-linkedin"></i></a></div>
+                                                    class="fa fa-linkedin"></i></a>
+                                            </div>
                                             {% for msg in messages %}
                                             <p id="message">{{msg}}</p>
                                             {% endfor %}
