@@ -43,7 +43,7 @@ def networkPage(request):
 
 
 def networkHotkeysPage(request):
-    return render(request, 'user-dashboard(connections)(hotkeys-enabled).html')
+    return render(request, 'user-profile(usr-dshbrd2).html')
 
 
 def networkFollowersPage(request):
@@ -52,4 +52,12 @@ def networkFollowersPage(request):
 
 def networkFollowingPage(request):
     return render(request, 'user-dashboard(following).html')
+
+
+@login_required(login_url='login')
+def myProjects(request):
+    context = {
+        'groups': request.user.groups.all()
+    }
+    return render(request, 'my-projects.html', context)
 

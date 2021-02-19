@@ -100,9 +100,9 @@
                 <!-- Nav Tabs -->
                 <div class="col-md-12 ">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
-                        <li><a data-toggle="tab" href="#jobs">Jobs</a></li>
-                        <li><a data-toggle="tab" href="#contact">Contact</a></li>
+                        <li class="active"><a data-toggle="tab" href="#profile">Projet</a></li>
+                        <li><a data-toggle="tab" href="#jobs">Profil fondateur</a></li>
+                        <li><a data-toggle="tab" href="#contact">Crowfonding</a></li>
                     </ul>
                 </div>
 
@@ -155,17 +155,17 @@
                                             class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i
                                             class="fa fa-star-o"></i></span></li>
                                 <li class="row">
-                                    <h6 class="title col-xs-6">Knowledge:</h6>
+                                    <h6 class="title col-xs-6">Aide et conseil:</h6>
                                     <span class="col-xs-6"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
                                             class="fa fa-star"></i> <i class="fa fa-star-half-o"></i> <i
                                             class="fa fa-star-o"></i></span></li>
                                 <li class="row">
-                                    <h6 class="title col-xs-6">Quality::</h6>
+                                    <h6 class="title col-xs-6">Collaboration:</h6>
                                     <span class="col-xs-6"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
                                             class="fa fa-star"></i> <i class="fa fa-star"></i> <i
                                             class="fa fa-star-o"></i></span></li>
                                 <li class="row">
-                                    <h6 class="title col-xs-6">Price:</h6>
+                                    <h6 class="title col-xs-6">Note des experts:</h6>
                                     <span class="col-xs-6"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
                                             class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i
                                             class="fa fa-star-o"></i></span></li>
@@ -178,7 +178,7 @@
                         </div>
                     </div>
 
-                    <!-- Company Rating -->
+                    <!-- Contact -->
                     <div class="sidebar">
                         <h5 class="main-title">Contact</h5>
                         <div class="sidebar-information form-side">
@@ -222,46 +222,49 @@
                             <div class="profile-main">
                                 <h3>Services</h3>
                                 <div class="profile-in profile-serv">
-                                    <h6>Here’s an overview of the services we provide.</h6>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <div class="icon"><img src="static/images/icon-prifile-1.png" alt=""></div>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6>Engine diagnostics and repairs</h6>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit,
-                                                maxime, excepturi,
-                                                mollitia, voluptatibus similique aliquidautem laudantium sapiente ad
-                                                enim ipsa modi
-                                                labo rum accusantium deleniti neque.</p>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <div class="icon"><img src="static/images/icon-prifile-2.png" alt=""></div>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6>Engine diagnostics and repairs</h6>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit,
-                                                maxime, excepturi,
-                                                mollitia, voluptatibus similique aliquidautem laudantium sapiente ad
-                                                enim ipsa modi
-                                                labo rum accusantium deleniti neque.</p>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <div class="icon"><img src="static/images/icon-prifile-3.png" alt=""></div>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6>Engine diagnostics and repairs</h6>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit,
-                                                maxime, excepturi,
-                                                mollitia, voluptatibus similique aliquidautem laudantium sapiente ad
-                                                enim ipsa modi
-                                                labo rum accusantium deleniti neque.</p>
-                                        </div>
-                                    </div>
+
+                                    <a href="{% url 'myProjects' %}" class="btn mb15 btn-large btn-transparent-primary">Participer
+                                        à un projet</a>
+                                    <!--<h6>Here’s an overview of the services we provide.</h6>-->
+                                    <!--<div class="media">-->
+                                    <!--    <div class="media-left">-->
+                                    <!--        <div class="icon"><img src="static/images/icon-prifile-1.png" alt=""></div>-->
+                                    <!--    </div>-->
+                                    <!--    <div class="media-body">-->
+                                    <!--        <h6>Engine diagnostics and repairs</h6>-->
+                                    <!--        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit,-->
+                                    <!--            maxime, excepturi,-->
+                                    <!--            mollitia, voluptatibus similique aliquidautem laudantium sapiente ad-->
+                                    <!--            enim ipsa modi-->
+                                    <!--            labo rum accusantium deleniti neque.</p>-->
+                                    <!--    </div>-->
+                                    <!--</div>-->
+                                    <!--<div class="media">-->
+                                    <!--    <div class="media-left">-->
+                                    <!--        <div class="icon"><img src="static/images/icon-prifile-2.png" alt=""></div>-->
+                                    <!--    </div>-->
+                                    <!--    <div class="media-body">-->
+                                    <!--        <h6>Engine diagnostics and repairs</h6>-->
+                                    <!--        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit,-->
+                                    <!--            maxime, excepturi,-->
+                                    <!--            mollitia, voluptatibus similique aliquidautem laudantium sapiente ad-->
+                                    <!--            enim ipsa modi-->
+                                    <!--            labo rum accusantium deleniti neque.</p>-->
+                                    <!--    </div>-->
+                                    <!--</div>-->
+                                    <!--<div class="media">-->
+                                    <!--    <div class="media-left">-->
+                                    <!--        <div class="icon"><img src="static/images/icon-prifile-3.png" alt=""></div>-->
+                                    <!--    </div>-->
+                                    <!--    <div class="media-body">-->
+                                    <!--        <h6>Engine diagnostics and repairs</h6>-->
+                                    <!--        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit,-->
+                                    <!--            maxime, excepturi,-->
+                                    <!--            mollitia, voluptatibus similique aliquidautem laudantium sapiente ad-->
+                                    <!--            enim ipsa modi-->
+                                    <!--            labo rum accusantium deleniti neque.</p>-->
+                                    <!--    </div>-->
+                                    <!--</div>-->
                                 </div>
                             </div>
                         </div>
