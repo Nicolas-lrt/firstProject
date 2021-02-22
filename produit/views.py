@@ -55,9 +55,13 @@ def networkFollowingPage(request):
 
 
 @login_required(login_url='login')
+def jackpotPage(request):
+    return render(request, 'my-jackpot.html')
+
+
+@login_required(login_url='login')
 def myProjects(request):
     context = {
         'groups': request.user.groups.all()
     }
     return render(request, 'my-projects.html', context)
-

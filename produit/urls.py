@@ -15,4 +15,5 @@ urlpatterns = [
     path('user-followers', views.networkFollowersPage, name='networkFollowersPage'),
     path('user-following', views.networkFollowingPage, name='networkFollowingPage'),
     path('my-projects', views.myProjects, name='myProjects'),
+    path('my-jackpot', views.jackpotPage, name='myJackpot'),
 ]
