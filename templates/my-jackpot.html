@@ -1,5 +1,7 @@
+<!--library chartjs-->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<!---->
 {% extends 'main.html' %}
 {% block contenu %}
 <!-- SUB Banner -->
@@ -13,10 +15,12 @@
 
 <div class="container">
     <h3 class="section-title" style="text-align: center">Ma cagnotte</h3>
-    <div style="width: 75%; margin-left: 12%">
+    <div style="width: 70%; margin-left: 15%">
         <canvas id="myChart"></canvas>
     </div>
-    <div class="row">
+    <br>
+    <br>
+    <div class="row" style="margin-left: 10%">
         <div class="col-sm-4">
             <a href="{% url 'myProjects' %}" class="btn mb15 btn-medium btn-primary">Participer à un projet</a>
         </div>
@@ -40,14 +44,14 @@
             // The data for our dataset
             data: {
                 labels: [
-                    'Ma cagnotte',
-                    'Fond d\'investissement',
-                    'Gains investis',
-                    'NGC'
+                    'Ma cagnotte (€)',
+                    'Fond d\'investissement (€)',
+                    'Gains investis (€)',
+                    'NGC (€)'
                 ],
                 datasets: [{
                     data: [90, 50, 30, 15],
-                    backgroundColor: ['#6495ed', '#D14E4E', '#72E85A', '#C870FC']
+                    backgroundColor: ['#6495ed', '#D14E4E', '#72E85A', '#C870FC'],
                 }]
             },
 
@@ -56,6 +60,9 @@
                 responsive: true,
                 legend: {
                     position: 'bottom',
+                    labels: {
+                        fontSize : 14
+                    },
                 },
                 plugins: {
                     datalabels: {
@@ -64,7 +71,7 @@
                         align: 'start',
                         offset: -10,
                         borderWidth: 2,
-                        borderRadius: 25,
+                        borderRadius: 45,
                         borderColor: 'rgba(0,0,0,0.3)',
                         backgroundColor: (color) => {
                             return color.dataset.backgroundColor;
@@ -74,13 +81,12 @@
                             size: '13'
                         },
                         formatter: (value) => {
-                            return value + ' €'
+                            return parseInt((value/185)*100) + '%'
                         }
                     }
                 }
             }
         });
-
 </script>
 
 
