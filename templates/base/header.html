@@ -60,10 +60,15 @@
                     </li>
                     <li><a href="{% url 'userProfile1' %}">User Profile</a></li>
                     <li><a href="{% url 'blogPage' %}">Blog</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'myJackpot' %}">Cagnotte personnelle</a></li>
+                    <li><a href="#">Transfert d'argent</a></li>
+                    <li><a href="{% url 'accueilBoutique' %}">Boutique</a></li>
+                    {% endif %}
                     <li><a href="{% url 'guiKit' %}">GUI KIT</a></li>
                 </ul>
             </nav>
         </div>
     </div>
-<!-- end .uou-block-2b -->
+    <!-- end .uou-block-2b -->
 </div>

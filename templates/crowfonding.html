@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% block contenu %}
+
+<div class="profile-bnr sub-bnr user-profile-bnr">
+    <div class="position-center-center">
+        <div class="container">
+            <h2>Crowfonding</h2>
+        </div>
+    </div>
+</div>
+<div class="container">
+    {% if request.user.is_anonymous %}
+    <h5 style="text-align: center">
+        Aucune cotisation possible car vous n'êtes pas membre.
+        <br>
+        Veuillez <a href="{% url 'login' %}">vous connecter</a> si vous avez déjà un compte membre.
+        <br>
+        Pas de compte ? <a href="{% url 'register' %}">Devenir membre</a>
+    </h5>
+    {% else %}
+    <h5 style="text-align: center">
+        Avez-vous reçu un <a href="">code d'adhésion</a> ou voulez-vous <a href="">créer</a> votre propre crowfonding maintenant ?
+        <br>
+        <br>
+        Cliquez <a href="">ici</a> pour créer un crowfonding ou <a href="">insérer un code</a> maintenant.
+    </h5>
+    {% endif %}
+</div>
+
+{% endblock %}

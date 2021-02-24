@@ -54,6 +54,10 @@ def networkFollowingPage(request):
     return render(request, 'user-dashboard(following).html')
 
 
+def crowfondingPage(request):
+    return render(request, 'crowfonding.html')
+
+
 @login_required(login_url='login')
 def jackpotPage(request):
     return render(request, 'my-jackpot.html')

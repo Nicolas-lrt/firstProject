@@ -1,0 +1,79 @@
+{% extends 'main.html' %}
+{% block contenu %}
+<!--Sub Banner-->
+<div class="profile-bnr sub-bnr user-profile-bnr">
+    <div class="position-center-center">
+        <div class="container">
+            <h2>So'ko Boutique</h2>
+        </div>
+    </div>
+</div>
+
+<!--search-->
+<div class="search-pro">
+    <div class="map-search">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="map-search-fields">
+                        <div class="field">
+                            <input type="text" placeholder="Entrez les mots-clés">
+                        </div>
+                        <div class="field custom-select-box">
+                            <select required aria-label="select example" name="categorie">
+                                <option value="">Sélectionner une catégorie</option>
+                                <option value="Accessoires">Accessoires</option>
+                                <option value="Alimentation extérieur">Alimentation extérieur</option>
+                                <option value="Beauté">Beauté</option>
+                                <option value="Évènementiel">Évènementiel</option>
+                                <option value="Livraison">Livraison</option>
+                                <option value="Loisir">Loisir</option>
+                                <optgroup label="Maison">
+                                    <option value="">Art de la table</option>
+                                    <option value="">bricolage</option>
+                                    <option value="">Déco</option>
+                                    <option value="">Electroménager</option>
+                                    <option value="">Jardinage</option>
+                                    <option value="">Linge de maison</option>
+                                </optgroup>
+                                <option value="Offre de service">Offre de service</option>
+                                <optgroup label="Véhicules">
+                                    <option value="">Voitures</option>
+                                    <option value="">Pièces</option>
+                                </optgroup>
+                                <option value="Restauration">Restauration</option>
+                                <option value="Sante & bien être">Sante & bien être</option>
+                                <optgroup label="Mode">
+                                    <optgroup label="Chaussures">
+                                        <option value="">Femme</option>
+                                        <option value="">Homme</option>
+                                    </optgroup>
+                                    <optgroup label="Vêtement">
+                                        <option value="">Enfant</option>
+                                        <option value="">Femme</option>
+                                        <option value="">Homme</option>
+                                    </optgroup>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="field custom-select-box">
+                            <select required aria-label="select example" name="location">
+                                <option value="">Sélectionner une localisation</option>
+                                <option value="">France</option>
+                                <option value="">Pays</option>
+                                <option value="">Pays</option>
+                                <option value="">Pays</option>
+                                <option value="">Pays</option>
+                                <option value="">Pays</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="search-button">
+                        <button>Rechercher</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

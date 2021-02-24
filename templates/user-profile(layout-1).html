@@ -108,7 +108,8 @@
                                                     <br>
                                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                                     Exercitationem, at nemo inventore temporibus corporis suscipit.</p>
-                                                <a href="{% url 'myProjects' %}" class="btn mb15 btn-large btn-transparent-primary">Participer
+                                                <a href="{% url 'myProjects' %}"
+                                                   class="btn mb15 btn-large btn-transparent-primary">Participer
                                                     à un projet</a>
                                             </div>
                                         </div>
@@ -199,13 +200,16 @@
                                                     <h6>XXXX Project</h6>
                                                     <p>Founder MR Jhonson xxx</p>
                                                     <p>Johannesbourg</p>
+                                                    {% if request.user.is_authenticated %}
+                                                    <p>XXX€ investis</p>
+                                                    {% endif %}
 
                                                     <!-- Share -->
-                                                    <!--                                                    <div class="share-w"><a href="#."><i-->
-                                                    <!--                                                            class="fa fa-bookmark-o"></i></a> <a href="#."><i-->
-                                                    <!--                                                            class="fa fa-envelope-o"></i></a> <a href="#."><i-->
-                                                    <!--                                                            class="fa fa-eye"></i></a>-->
-                                                    <!--                                                    </div>-->
+                                                    <!-- <div class="share-w"><a href="#."><i-->
+                                                    <!--         class="fa fa-bookmark-o"></i></a> <a href="#."><i-->
+                                                    <!--         class="fa fa-envelope-o"></i></a> <a href="#."><i-->
+                                                    <!--         class="fa fa-eye"></i></a>-->
+                                                    <!-- </div>-->
                                                 </div>
                                             </div>
 
@@ -221,13 +225,16 @@
                                                     <h6>XXXX Project</h6>
                                                     <p>Founder MR Jhonson xxx</p>
                                                     <p>Johannesbourg</p>
+                                                    {% if request.user.is_authenticated %}
+                                                    <p>XXX€ investis</p>
+                                                    {% endif %}
 
                                                     <!-- Share -->
-                                                    <!--                                                    <div class="share-w"><a href="#."><i-->
-                                                    <!--                                                            class="fa fa-bookmark-o"></i></a> <a href="#."><i-->
-                                                    <!--                                                            class="fa fa-envelope-o"></i></a> <a href="#."><i-->
-                                                    <!--                                                            class="fa fa-eye"></i></a>-->
-                                                    <!--                                                    </div>-->
+                                                    <!--<div class="share-w"><a href="#."><i-->
+                                                    <!--        class="fa fa-bookmark-o"></i></a> <a href="#."><i-->
+                                                    <!--        class="fa fa-envelope-o"></i></a> <a href="#."><i-->
+                                                    <!--        class="fa fa-eye"></i></a>-->
+                                                    <!--</div>-->
                                                 </div>
                                             </div>
 
@@ -243,13 +250,16 @@
                                                     <h6>XXXX Project</h6>
                                                     <p>Founder MR Jhonson xxx</p>
                                                     <p>Johannesbourg</p>
+                                                    {% if request.user.is_authenticated %}
+                                                    <p>XXX€ investis</p>
+                                                    {% endif %}
 
                                                     <!-- Share -->
-                                                    <!--                                                    <div class="share-w"><a href="#."><i-->
-                                                    <!--                                                            class="fa fa-bookmark-o"></i></a> <a href="#."><i-->
-                                                    <!--                                                            class="fa fa-envelope-o"></i></a> <a href="#."><i-->
-                                                    <!--                                                            class="fa fa-eye"></i></a>-->
-                                                    <!--                                                    </div>-->
+                                                    <!-- <div class="share-w"><a href="#."><i-->
+                                                    <!--         class="fa fa-bookmark-o"></i></a> <a href="#."><i-->
+                                                    <!--         class="fa fa-envelope-o"></i></a> <a href="#."><i-->
+                                                    <!--         class="fa fa-eye"></i></a>-->
+                                                    <!-- </div>-->
                                                 </div>
                                             </div>
                                         </div>
