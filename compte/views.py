@@ -10,6 +10,8 @@ from membre.forms import ajout_form
 
 
 # Create your views here.
+from .models import Compte
+
 
 @unauthenticated_user
 def registerPage(request):
@@ -21,6 +23,8 @@ def registerPage(request):
             user = form.save()
             group = Group.objects.get(name=role)
             group.user_set.add(user)
+            compte = Compte(user_id=user.id)
+            compte.save()
             return redirect('login')
 
     context = {'form': form}
