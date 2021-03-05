@@ -8,6 +8,7 @@ from produit.models import Produit
 
 class Compte(models.Model):
     user = models.ForeignKey(User, verbose_name='Utilisateur associé', on_delete=models.CASCADE)
+    userId = models.IntegerField(null=True)
 
     def __unicode__(self):
         return self.user.username

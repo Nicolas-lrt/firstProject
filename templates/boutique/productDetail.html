@@ -1,12 +1,12 @@
 {% extends 'main.html' %}
 {% block contenu %}
-
+{% load static %}
 <!--Sub Banner-->
 <div class="profile-bnr sub-bnr user-profile-bnr">
     <div class="position-center-center">
         <div class="container">
             <div class="col-md-10">
-                <h2>So'ko Shop</h2>
+                <h2><a href="{% url 'accueilBoutique' %}" style="color: white">So'ko Shop</a></h2>
             </div>
             <div class="col-md-2">
                 <a href="#" class="btn mb20 btn-large btn-transparent-primary" style="margin-bottom: 10%">Panier (0)</a>
@@ -88,10 +88,10 @@
     <div class="container">
         <div class="sidebar">
             <div class="col-sm-6">
-                <img src="../static/images/pro-img-1-inclined.jpg" alt="">
+                <img src="{% static 'images/pro-img-1-inclined.jpg' %}" alt="">
             </div>
             <div class="col-sm-6">
-                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+                <h3>{{ produit.nom }}</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime,
                     excepturi, mollitia, voluptatibus
                     similique aliquidautem laudantium sapiente ad enim ipsa modi labo rum
@@ -106,7 +106,7 @@
                         </span>
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2>$XX</h2>
+                        <h2>${{ produit.prix }}</h2>
                     </div>
                     <div class="col-sm-6">
                         <a href="#" class="btn mb20 btn-small btn-primary" style="margin-top: 12%; margin-left: 22%">Ajouter
@@ -209,8 +209,8 @@
                 {% for produit in produits %}
                 <div class="col-sm-6">
                     <div class="sidebar">
-                        <img src="../static/images/company-thumb.jpg">
-                        <h6 style=""><a href="{% url 'productDetail' %}" style="color: black">{{ produit.nom }}</a></h6>
+                        <img src="{% static 'images/company-thumb.jpg' %}">
+                        <h6 style=""><a href="{% url 'productDetail' produit.id %}" style="color: black">{{ produit.nom }}</a></h6>
                         <div class="col-md-4">
                             <p style="font-size: 30px; color: black"><strong>-X%</strong></p>
                         </div>
@@ -237,102 +237,13 @@
                     </div>
                 </div>
                 {% endfor %}
-<!--                <div class="col-sm-6">-->
-<!--                    <div class="sidebar">-->
-<!--                        <img src="../static/images/company-thumb.jpg">-->
-<!--                        <h6 style="text-align: center"><a href="{% url 'productDetail' %}" style="color: black">Lorem-->
-<!--                            ipsum dolor sit amet, consectetur adipisicing elit.</a></h6>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="font-size: 30px; color: black"><strong>-X%</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="text-decoration: line-through; text-align: center">$ XXX</p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="text-align: right">$ <strong style="font-size: 20px"> XXX</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-sm-12">-->
-<!--                            <p>-->
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-8">-->
-<!--                            <p style="font-size: 12px; color: black">-->
-<!--                                <label style="font-size: 8px">(time icon) </label><strong> X </strong>d.-->
-<!--                                <strong>X </strong>h. <strong>X </strong>m. <strong>X </strong>s.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <a href="" class="btn mb20 btn-small btn-primary">Add</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-sm-6">-->
-<!--                    <div class="sidebar">-->
-<!--                        <img src="../static/images/company-thumb.jpg">-->
-<!--                        <h6 style="text-align: center"><a href="{% url 'productDetail' %}" style="color: black">Lorem-->
-<!--                            ipsum dolor sit amet, consectetur adipisicing elit.</a></h6>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="font-size: 30px; color: black"><strong>-X%</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="text-decoration: line-through; text-align: center">$ XXX</p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="text-align: right">$ <strong style="font-size: 20px"> XXX</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-sm-12">-->
-<!--                            <p>-->
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-8">-->
-<!--                            <p style="font-size: 12px; color: black">-->
-<!--                                <label style="font-size: 8px">(time icon) </label><strong> X </strong>d.-->
-<!--                                <strong>X </strong>h. <strong>X </strong>m. <strong>X </strong>s.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <a href="" class="btn mb20 btn-small btn-primary">Add</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-sm-6">-->
-<!--                    <div class="sidebar">-->
-<!--                        <img src="../static/images/company-thumb.jpg">-->
-<!--                        <h6 style="text-align: center"><a href="{% url 'productDetail' %}" style="color: black">Lorem-->
-<!--                            ipsum dolor sit amet, consectetur adipisicing elit.</a></h6>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="font-size: 30px; color: black"><strong>-X%</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="text-decoration: line-through; text-align: center">$ XXX</p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="text-align: right">$ <strong style="font-size: 20px"> XXX</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-sm-12">-->
-<!--                            <p>-->
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-8">-->
-<!--                            <p style="font-size: 12px; color: black">-->
-<!--                                <label style="font-size: 8px">(time icon) </label><strong> X </strong>d.-->
-<!--                                <strong>X </strong>h. <strong>X </strong>m. <strong>X </strong>s.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <a href="" class="btn mb20 btn-small btn-primary">Add</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+
                 <h5 style="text-decoration: overline #008fef">OFFRES POPULAIRES</h5>
                 {% for produit in produits %}
                 <div class="col-sm-6">
                     <div class="sidebar">
-                        <img src="../static/images/company-thumb.jpg">
-                        <h6 style=""><a href="{% url 'productDetail' %}" style="color: black">{{ produit.nom }}</a></h6>
+                        <img src="{% static 'images/company-thumb.jpg' %}">
+                        <h6 style=""><a href="{% url 'productDetail' produit.id %}" style="color: black">{{ produit.nom }}</a></h6>
                         <div class="col-md-4">
                             <p style="font-size: 30px; color: black"><strong>-X%</strong></p>
                         </div>
@@ -359,103 +270,14 @@
                     </div>
                 </div>
                 {% endfor %}
-<!--                <div class="col-sm-6">-->
-<!--                    <div class="sidebar">-->
-<!--                        <img src="../static/images/company-thumb.jpg">-->
-<!--                        <h6 style="text-align: center"><a href="{% url 'productDetail' %}" style="color: black">Lorem-->
-<!--                            ipsum dolor sit amet, consectetur adipisicing elit.</a></h6>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="font-size: 30px; color: black"><strong>-X%</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="text-decoration: line-through; text-align: center">$ XXX</p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="text-align: right">$ <strong style="font-size: 20px"> XXX</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-sm-12">-->
-<!--                            <p>-->
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-8">-->
-<!--                            <p style="font-size: 12px; color: black">-->
-<!--                                <label style="font-size: 8px">(time icon) </label><strong> X </strong>d.-->
-<!--                                <strong>X </strong>h. <strong>X </strong>m. <strong>X </strong>s.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <a href="" class="btn mb20 btn-small btn-primary">Add</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-sm-6">-->
-<!--                    <div class="sidebar">-->
-<!--                        <img src="../static/images/company-thumb.jpg">-->
-<!--                        <h6 style="text-align: center"><a href="{% url 'productDetail' %}" style="color: black">Lorem-->
-<!--                            ipsum dolor sit amet, consectetur adipisicing elit.</a></h6>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="font-size: 30px; color: black"><strong>-X%</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="text-decoration: line-through; text-align: center">$ XXX</p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="text-align: right">$ <strong style="font-size: 20px"> XXX</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-sm-12">-->
-<!--                            <p>-->
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-8">-->
-<!--                            <p style="font-size: 12px; color: black">-->
-<!--                                <label style="font-size: 8px">(time icon) </label><strong> X </strong>d.-->
-<!--                                <strong>X </strong>h. <strong>X </strong>m. <strong>X </strong>s.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <a href="" class="btn mb20 btn-small btn-primary">Add</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-sm-6">-->
-<!--                    <div class="sidebar">-->
-<!--                        <img src="../static/images/company-thumb.jpg">-->
-<!--                        <h6 style="text-align: center"><a href="{% url 'productDetail' %}" style="color: black">Lorem-->
-<!--                            ipsum dolor sit amet, consectetur adipisicing elit.</a></h6>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="font-size: 30px; color: black"><strong>-X%</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="text-decoration: line-through; text-align: center">$ XXX</p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <p style="text-align: right">$ <strong style="font-size: 20px"> XXX</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-sm-12">-->
-<!--                            <p>-->
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-8">-->
-<!--                            <p style="font-size: 12px; color: black">-->
-<!--                                <label style="font-size: 8px">(time icon) </label><strong> X </strong>d.-->
-<!--                                <strong>X </strong>h. <strong>X </strong>m. <strong>X </strong>s.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-4">-->
-<!--                            <a href="" class="btn mb20 btn-small btn-primary">Add</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+
             </div>
         </div>
         <!--Right side-->
         <div class="col-md-4">
             <div class="sidebar">
                 <h5 style="text-decoration: overline #008fef">PUBLICITE</h5>
-                <img src="../static/images/app-img.png">
+                <img src="{% static 'images/app-img.png' %}">
                 <br>
                 <br>
                 <h5 style="text-decoration: overline #008fef">SUBSCRIBE</h5>
@@ -540,10 +362,10 @@
                 <h5 style="text-decoration: overline #008fef">Meilleurs Classements</h5>
                 <div class="col-mb 10">
                     <div class="col-md-4">
-                        <img src="../static/img/blog-image-4.jpg">
+                        <img src="{% static 'img/blog-image-4.jpg' %}">
                     </div>
                     <div class="col-md-8">
-                        <a href="{% url 'productDetail' %}"><strong style="color: black; font-size: 14px">Lorem ipsum
+                        <a href="#"><strong style="color: black; font-size: 14px">Lorem ipsum
                             dolor sit amet,
                             elit.</strong></a>
                         <span class="col-xs-10">
@@ -561,10 +383,10 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <img src="../static/img/blog-image-4.jpg">
+                        <img src="{% static 'img/blog-image-4.jpg' %}">
                     </div>
                     <div class="col-md-8">
-                        <a href="{% url 'productDetail' %}"><strong style="color: black; font-size: 14px">Lorem ipsum
+                        <a href="#"><strong style="color: black; font-size: 14px">Lorem ipsum
                             dolor sit amet,
                             elit.</strong></a>
                         <span class="col-xs-10">
@@ -582,10 +404,10 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <img src="../static/img/blog-image-4.jpg">
+                        <img src="{% static 'img/blog-image-4.jpg' %}">
                     </div>
                     <div class="col-md-8">
-                        <a href="{% url 'productDetail' %}"><strong style="color: black; font-size: 14px">Lorem ipsum
+                        <a href="#"><strong style="color: black; font-size: 14px">Lorem ipsum
                             dolor sit amet,
                             elit.</strong></a>
                         <span class="col-xs-10">

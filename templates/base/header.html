@@ -1,3 +1,4 @@
+{% load static %}
 <!-- Top Toolbar -->
 <div class="toolbar">
     <div class="uou-block-1a blog">
@@ -25,11 +26,11 @@
                 {% endif %}
 
             </ul>
-            <div class="language"><a href="#" class="toggle"><img src="../static/images/flags/32/US.png" alt="">ENG</a>
+            <div class="language"><a href="#" class="toggle"><img src="{% static 'images/flags/32/US.png' %}" alt="">ENG</a>
                 <ul>
-                    <li><a href="#"><img src="../static/images/flags/32/PT.png" alt=""> PT</a></li>
-                    <li><a href="#"><img src="../static/images/flags/32/FR.png" alt=""> FR</a></li>
-                    <li><a href="#"><img src="../static/images/flags/32/ES.png" alt=""> ES</a></li>
+                    <li><a href="#"><img src="{% static 'images/flags/32/PT.png' %}" alt=""> PT</a></li>
+                    <li><a href="#"><img src="{% static 'images/flags/32/FR.png' %}" alt=""> FR</a></li>
+                    <li><a href="#"><img src="{% static 'images/flags/32/ES.png' %}" alt=""> ES</a></li>
                 </ul>
             </div>
         </div>
@@ -41,7 +42,7 @@
 <div class="box-shadow-for-ui">
     <div class="uou-block-2b">
         <div class="container">
-            <a href="{% url 'home' %}" class="logo"><img src="../static/images/logo-enea.png" alt=""></a>
+            <a href="{% url 'home' %}" class="logo"><img src="{% static 'images/logo-enea.png' %}" alt=""></a>
             <a href="#" class="mobile-sidebar-button mobile-sidebar-toggle"><span></span></a>
             <nav class="nav">
                 <ul class="sf-menu">

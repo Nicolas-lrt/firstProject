@@ -24,6 +24,7 @@ def registerPage(request):
             group = Group.objects.get(name=role)
             group.user_set.add(user)
             compte = Compte(user_id=user.id)
+            compte.userId = user.id
             compte.save()
             return redirect('login')
 
