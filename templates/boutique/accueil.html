@@ -8,7 +8,7 @@
                 <h2><a href="{% url 'accueilBoutique' %}" style="color: white">So'ko Shop</a></h2>
             </div>
             <div class="col-md-2">
-                <a href="{% url 'cartPage' request.user.id %}" class="btn mb20 btn-large btn-transparent-primary" style="margin-bottom: 10%">Panier</a>
+                <a href="{% url 'cartPage' %}" class="btn mb20 btn-large btn-transparent-primary" style="margin-bottom: 10%">Panier</a>
             </div>
         </div>
     </div>
@@ -145,7 +145,7 @@
                             </p>
                         </div>
                         <div class="col-md-4">
-                            <a href="" class="btn mb20 btn-small btn-primary">Add</a>
+                            <a href="{% url 'addToCart' produit.id 1 %}" class="btn mb20 btn-small btn-primary">Add</a>
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,7 @@ class CartLine(models.Model):
     """
     client = models.ForeignKey(Compte, on_delete=models.CASCADE)
     product = models.ForeignKey(Produit, on_delete=models.CASCADE)
-    quantity = models.IntegerField()
+    quantity = models.IntegerField(null=True)
 
     class Meta:
         verbose_name = 'Ligne d\'un panier client'
