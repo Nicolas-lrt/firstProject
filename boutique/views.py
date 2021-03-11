@@ -61,6 +61,7 @@ def cartPage(request):
 
     return render(request, 'boutique/cart.html', {'cart': cart, 'total': total})
 
+
 @login_required(login_url='login')
 def clearCart(request, pk):
     client = Compte.objects.get(userId=pk)
@@ -68,9 +69,9 @@ def clearCart(request, pk):
 
     return redirect(request.META.get('HTTP_REFERER'))
 
+
 @login_required(login_url='login')
 def clearCartLine(request, pk):
     CartLine.objects.get(id=pk).delete()
 
     return redirect(request.META.get('HTTP_REFERER'))
-

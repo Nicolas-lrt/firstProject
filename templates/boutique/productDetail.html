@@ -9,7 +9,8 @@
                 <h2><a href="{% url 'accueilBoutique' %}" style="color: white">So'ko Shop</a></h2>
             </div>
             <div class="col-md-2">
-                <a href="{% url 'cartPage' %}" class="btn mb20 btn-large btn-transparent-primary" style="margin-bottom: 10%">Panier</a>
+                <a href="{% url 'cartPage' %}" class="btn mb20 btn-large btn-transparent-primary"
+                   style="margin-bottom: 10%">Panier</a>
             </div>
         </div>
     </div>
@@ -92,24 +93,21 @@
             </div>
             <div class="col-sm-6">
                 <h3>{{ produit.nom }}</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime,
-                    excepturi, mollitia, voluptatibus
-                    similique aliquidautem laudantium sapiente ad enim ipsa modi labo rum
-                    accusantium deleniti neque.
-                </p>
+                <p>{{ produit.shortDesc }}</p>
                 <span class="col-xs-10">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </span>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </span>
                 <div class="row">
                     <div class="col-sm-6">
                         <h2>${{ produit.prix }}</h2>
                     </div>
                     <div class="col-sm-6">
-                        <a href="{% url 'addToCart' produit.id 1 %}" class="btn mb20 btn-small btn-primary" style="margin-top: 12%; margin-left: 22%">Ajouter
+                        <a href="{% url 'addToCart' produit.id 1 %}" class="btn mb20 btn-small btn-primary"
+                           style="margin-top: 12%; margin-left: 22%">Ajouter
                             au panier</a>
                     </div>
                 </div>
@@ -151,9 +149,9 @@
                 </div>
             </div>
             <h4 style="text-decoration: overline #008fef">A propos</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores explicabo numquam accusamus
-                voluptatibus odit! Assumenda, tempore, dolorum explicabo iusto molestiae numquam laudantium vero
-                doloremque neque quod id temporibus nemo nam itaque ratione.</p>
+            <p>
+                {{ produit.longDesc }}
+            </p>
             <h4 style="text-decoration: overline #008fef">Avis</h4>
         </div>
     </div>
@@ -210,7 +208,9 @@
                 <div class="col-sm-6">
                     <div class="sidebar">
                         <img src="{% static 'images/company-thumb.jpg' %}">
-                        <h6 style=""><a href="{% url 'productDetail' produit.id %}" style="color: black">{{ produit.nom }}</a></h6>
+                        <h6 style="">
+                            <a href="{% url 'productDetail' produit.id %}" style="color: black">{{ produit.nom }}</a>
+                        </h6>
                         <div class="col-md-4">
                             <p style="font-size: 30px; color: black"><strong>-X%</strong></p>
                         </div>
@@ -218,11 +218,12 @@
                             <p style="text-decoration: line-through; text-align: center">$ XXX</p>
                         </div>
                         <div class="col-md-4">
-                            <p style="text-align: right">$ <strong style="font-size: 20px">{{ produit.prix }}</strong></p>
+                            <p style="text-align: right">$ <strong style="font-size: 20px">{{ produit.prix }}</strong>
+                            </p>
                         </div>
                         <div class="col-sm-12">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                {{ produit.veryShortDesc }}
                             </p>
                         </div>
                         <div class="col-md-8">
@@ -243,7 +244,9 @@
                 <div class="col-sm-6">
                     <div class="sidebar">
                         <img src="{% static 'images/company-thumb.jpg' %}">
-                        <h6 style=""><a href="{% url 'productDetail' produit.id %}" style="color: black">{{ produit.nom }}</a></h6>
+                        <h6 style="">
+                            <a href="{% url 'productDetail' produit.id %}" style="color: black">{{ produit.nom }}</a>
+                        </h6>
                         <div class="col-md-4">
                             <p style="font-size: 30px; color: black"><strong>-X%</strong></p>
                         </div>
@@ -251,11 +254,12 @@
                             <p style="text-decoration: line-through; text-align: center">$ XXX</p>
                         </div>
                         <div class="col-md-4">
-                            <p style="text-align: right">$ <strong style="font-size: 20px">{{ produit.prix }}</strong></p>
+                            <p style="text-align: right">$ <strong style="font-size: 20px">{{ produit.prix }}</strong>
+                            </p>
                         </div>
                         <div class="col-sm-12">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                {{ produit.veryShortDesc }}
                             </p>
                         </div>
                         <div class="col-md-8">

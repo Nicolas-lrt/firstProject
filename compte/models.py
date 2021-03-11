@@ -13,6 +13,9 @@ class Compte(models.Model):
     def __unicode__(self):
         return self.user.username
 
+    def __str__(self):
+        return self.user.username
+
 
 class CartLine(models.Model):
     """
@@ -28,10 +31,7 @@ class CartLine(models.Model):
 
     def total(self):
         return round(self.product.prix * float(self.quantity), 2)
-    #
-    # def total_vat(self):
-    #     return round(self.product.prix * float(self.quantity) * self.product.vat.percent, 2)
-    #
-    # def total(self):
-    #     return round((self.product.prix * float(self.quantity)) +
-    #                  (self.product.prix * float(self.quantity) * self.product.vat.percent), 2)
+
+    def __str__(self):
+        return 'Ligne de panier du client \'' + self.client.user.username + '\''
+
