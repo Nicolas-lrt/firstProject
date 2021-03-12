@@ -30,7 +30,7 @@ class CartLine(models.Model):
         verbose_name_plural = 'Lignes d\'un panier client'
 
     def total(self):
-        return round(self.product.prix * float(self.quantity), 2)
+        return round(self.product.prixReel * float(self.quantity), 2)
 
     def __str__(self):
         return 'Ligne de panier du client \'' + self.client.user.username + '\''

@@ -19,7 +19,7 @@ def accueilBoutique(request):
 @login_required(login_url='login')
 def productDetail(request, pk):
     liste_produits = Produit.objects.all()
-    produit = Produit.objects.get(id=pk)
+    produit = Produit.objects.get(nom=pk)
     return render(request, 'boutique/productDetail.html', {'produits': liste_produits, 'produit': produit})
 
 
@@ -52,17 +52,6 @@ def removeFromCart(request, pk):
 
 
 @login_required(login_url='login')
-def cartPage(request):
-    total = 0
-    client = Compte.objects.filter(userId=request.user.id)
-    cart = CartLine.objects.filter(client__in=client)
-    for cart_line in cart:
-        total += cart_line.total()
-
-    return render(request, 'boutique/cart.html', {'cart': cart, 'total': total})
-
-
-@login_required(login_url='login')
 def clearCart(request, pk):
     client = Compte.objects.get(userId=pk)
     CartLine.objects.filter(client_id=client.id).delete()
@@ -75,3 +64,23 @@ def clearCartLine(request, pk):
     CartLine.objects.get(id=pk).delete()
 
     return redirect(request.META.get('HTTP_REFERER'))
+
+
+@login_required(login_url='login')
+def cartPage(request):
+    total = 0
+    client = Compte.objects.filter(userId=request.user.id)
+    cart = CartLine.objects.filter(client__in=client)
+    for cart_line in cart:
+        total += cart_line.total()
+
+    return render(request, 'boutique/cart.html', {'cart': cart, 'total': total})
+
+
+@login_required(login_url='login')
+def cartRecap(request, total):
+    total = total
+    client = Compte.objects.filter(userId=request.user.id)
+    cart = CartLine.objects.filter(client__in=client)
+
+    return render(request, 'boutique/cartRecap.html', {'cart': cart, 'total': total})

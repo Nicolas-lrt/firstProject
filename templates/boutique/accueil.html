@@ -8,7 +8,8 @@
                 <h2><a href="{% url 'accueilBoutique' %}" style="color: white">So'ko Shop</a></h2>
             </div>
             <div class="col-md-2">
-                <a href="{% url 'cartPage' %}" class="btn mb20 btn-large btn-transparent-primary" style="margin-bottom: 10%">Panier</a>
+                <a href="{% url 'cartPage' %}" class="btn mb20 btn-large btn-transparent-primary"
+                   style="margin-bottom: 10%">Panier</a>
             </div>
         </div>
     </div>
@@ -83,22 +84,29 @@
 </div>
 <div class="profile-company-content main-user">
     <div class="container mb30">
+        <!--Left side-->
         <div class="col-md-8">
             <div class="sidebar">
                 <h5 style="text-decoration: overline #008fef">OFFRES SPECIALES</h5>
                 {% for produit in produits %}
                 <div class="col-sm-6">
                     <div class="sidebar">
-                        <img src="../static/images/company-thumb.jpg">
-                        <h6 style=""><a href="{% url 'productDetail' produit.id %}" style="color: black">{{ produit.nom }}</a></h6>
+                        {% if produit.smallImg %}
+                        <a href="{% url 'productDetail' produit.nom %}"><img src="{{ produit.smallImg.url }}"></a>
+                        {% endif %}
+                        <h6 style="">
+                            <a href="{% url 'productDetail' produit.nom %}" style="color: black">{{ produit.nom }}</a>
+                        </h6>
                         <div class="col-md-4">
-                            <p style="font-size: 30px; color: black"><strong>-X%</strong></p>
+                            <p style="font-size: 27px; color: black"><strong>-{{ produit.cashBackValue }}%</strong></p>
                         </div>
                         <div class="col-md-4">
-                            <p style="text-decoration: line-through; text-align: center">$ XXX</p>
+                            <p style="text-decoration: line-through; text-align: center">${{ produit.prixBrut }}</p>
                         </div>
                         <div class="col-md-4">
-                            <p style="text-align: right">$ <strong style="font-size: 20px">{{ produit.prix }}</strong></p>
+                            <p style="text-align: right">
+                                $<strong style="font-size: 20px">{{ produit.prixReel }}</strong>
+                            </p>
                         </div>
                         <div class="col-sm-12">
                             <p>
@@ -122,16 +130,22 @@
                 {% for produit in produits %}
                 <div class="col-sm-6">
                     <div class="sidebar">
-                        <img src="../static/images/company-thumb.jpg">
-                        <h6 style=""><a href="{% url 'productDetail' produit.id %}" style="color: black">{{ produit.nom }}</a></h6>
+                        {% if produit.smallImg %}
+                        <a href="{% url 'productDetail' produit.nom %}"><img src="{{ produit.smallImg.url }}"></a>
+                        {% endif %}
+                        <h6 style="">
+                            <a href="{% url 'productDetail' produit.nom %}" style="color: black">{{ produit.nom }}</a>
+                        </h6>
                         <div class="col-md-4">
-                            <p style="font-size: 30px; color: black"><strong>-X%</strong></p>
+                            <p style="font-size: 27px; color: black"><strong>-{{ produit.cashBackValue }}%</strong></p>
                         </div>
                         <div class="col-md-4">
-                            <p style="text-decoration: line-through; text-align: center">$ XXX</p>
+                            <p style="text-decoration: line-through; text-align: center">$XXX</p>
                         </div>
                         <div class="col-md-4">
-                            <p style="text-align: right">$ <strong style="font-size: 20px">{{ produit.prix }}</strong></p>
+                            <p style="text-align: right">
+                                $<strong style="font-size: 20px">${{ produit.prixReel }}</strong>
+                            </p>
                         </div>
                         <div class="col-sm-12">
                             <p>
