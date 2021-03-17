@@ -1,10 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Récap</h1>
-</body>
-</html>
+{% extends 'main.html' %}
+{% block contenu %}
+<!--Sub Banner-->
+<div class="profile-bnr sub-bnr user-profile-bnr">
+    <div class="position-center-center">
+        <div class="container">
+            <div class="col-md-10">
+                <h2><a href="{% url 'accueilBoutique' %}" style="color: white">So'ko Shop</a></h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="col-sm-6">
+    <h2>Récapitulatif commande</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+            </tr>
+            </thead>
+            {% for cart_line in cart %}
+            <tr>
+                <td>
+                    <a href="{% url 'productDetail' cart_line.product.nom %}" style="color: black">
+                        {{ cart_line.product.nom }}
+                    </a>
+                </td>
+                <td>
+                    {{cart_line.product.prixReel}}€
+                </td>
+                <td>
+                    {{cart_line.quantity}}
+                </td>
+            </tr>
+            {% endfor %}
+            <tfoot>
+            <tr>
+                <td>
+                    <strong>Total</strong>
+                </td>
+                <td>
+                    <strong>{{ total }}€</strong>
+                </td>
+                <td>
+                    <strong>{{ qtyTotal }}</strong>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+        <a class="btn btn-primary" href="{% url 'cartPage'  %}">Retourner au panier</a>
+        <a class="btn btn-transparent-primary" href="{% url 'accueilBoutique' %}">Retourner à la boutique</a>
+    </div>
+    <div class="col-sm-6">
+        <h2>Moyen de paiement</h2>
+        <form method="POST" action="">
+            <style type="text/css">
+                ul{
+                    list-style: none;
+                }
+            </style>
+            {% csrf_token %}
+            {% for champ in payForm %}
+            {{ champ }}
+            {% endfor %}
+            <input type="submit"
+                   value="Continuer"
+                   class="btn btn-primary"
+                   style="background-color: #2FAB00; margin-left: 7%">
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

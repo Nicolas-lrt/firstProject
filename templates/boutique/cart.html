@@ -13,7 +13,6 @@
 </div>
 <div class="container">
     <h1>Mon panier</h1>
-
     {% if cart %}
     <table>
         <thead>
@@ -48,10 +47,13 @@
             <td>
                 <strong>{{ total }}€</strong>
             </td>
+            <td>
+                <strong>{{ qtyTotal }}</strong>
+            </td>
         </tr>
         </tfoot>
     </table>
-    <a class="btn btn-primary" href="#">Valider la commande</a>
+    <a class="btn btn-primary" href="{% url 'cartRecap'  %}">Valider la commande</a>
     <a class="btn btn-secondary" href="{% url 'clearCart' request.user.id %}">Vider le panier</a>
     <a class="btn btn-transparent-primary" href="{% url 'accueilBoutique' %}">Retourner à la boutique</a>
     {% else %}

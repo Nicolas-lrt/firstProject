@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 from django.urls import reverse
 
+from boutique.forms import payChoiceForm
 from compte.models import Compte, CartLine
 from produit.models import Produit
 
@@ -13,14 +14,28 @@ from produit.models import Produit
 @login_required(login_url='login')
 def accueilBoutique(request):
     produits = Produit.objects.all()
-    return render(request, 'boutique/accueil.html', {'produits': produits})
+    qtyTotal = 0
+    client = Compte.objects.filter(userId=request.user.id)
+    if CartLine.objects.filter(client__in=client):
+        cart = CartLine.objects.filter(client__in=client)
+        for cart_line in cart:
+            qtyTotal += cart_line.quantity
+
+    return render(request, 'boutique/accueil.html', {'produits': produits, 'cartQty': qtyTotal})
 
 
 @login_required(login_url='login')
 def productDetail(request, pk):
     liste_produits = Produit.objects.all()
     produit = Produit.objects.get(nom=pk)
-    return render(request, 'boutique/productDetail.html', {'produits': liste_produits, 'produit': produit})
+    qtyTotal = 0
+    client = Compte.objects.filter(userId=request.user.id)
+    if CartLine.objects.filter(client__in=client):
+        cart = CartLine.objects.filter(client__in=client)
+        for cart_line in cart:
+            qtyTotal += cart_line.quantity
+    return render(request, 'boutique/productDetail.html',
+                  {'produits': liste_produits, 'produit': produit, 'cartQty': qtyTotal})
 
 
 @login_required(login_url='login')
@@ -69,18 +84,32 @@ def clearCartLine(request, pk):
 @login_required(login_url='login')
 def cartPage(request):
     total = 0
+    qtyTotal = 0
     client = Compte.objects.filter(userId=request.user.id)
     cart = CartLine.objects.filter(client__in=client)
     for cart_line in cart:
         total += cart_line.total()
+        qtyTotal += cart_line.quantity
 
-    return render(request, 'boutique/cart.html', {'cart': cart, 'total': total})
+    return render(request, 'boutique/cart.html', {'cart': cart, 'total': total, 'qtyTotal': qtyTotal})
 
 
 @login_required(login_url='login')
-def cartRecap(request, total):
-    total = total
+def cartRecap(request):
+    total = 0
+    qtyTotal = 0
     client = Compte.objects.filter(userId=request.user.id)
     cart = CartLine.objects.filter(client__in=client)
+    for cart_line in cart:
+        total += cart_line.total()
+        qtyTotal += cart_line.quantity
+    form = payChoiceForm()
+    if request.method == 'POST':
+        form = payChoiceForm(request.POST)
+        if form.is_valid():
+            if request.POST.get('choiceForm') == "1":
+                return cartPage(request)
+            else:
+                return redirect('accueilBoutique')
 
-    return render(request, 'boutique/cartRecap.html', {'cart': cart, 'total': total})
+    return render(request, 'boutique/cartRecap.html', {'cart': cart, 'total': total, 'qtyTotal': qtyTotal, 'payForm': form})
