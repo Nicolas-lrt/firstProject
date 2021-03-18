@@ -54,7 +54,7 @@
         </tfoot>
     </table>
     <a class="btn btn-primary" href="{% url 'cartRecap'  %}">Valider la commande</a>
-    <a class="btn btn-secondary" href="{% url 'clearCart' request.user.id %}">Vider le panier</a>
+    <a class="btn btn-secondary" href="{% url 'clearCart' %}">Vider le panier</a>
     <a class="btn btn-transparent-primary" href="{% url 'accueilBoutique' %}">Retourner à la boutique</a>
     {% else %}
     <h5>Panier vide</h5>

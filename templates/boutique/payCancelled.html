@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% block contenu %}
+<!--Sub Banner-->
+<div class="profile-bnr sub-bnr user-profile-bnr">
+    <div class="position-center-center">
+        <div class="container">
+            <div class="col-md-10">
+                <h2><a href="{% url 'accueilBoutique' %}" style="color: white">So'ko Shop</a></h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h3>
+        Paiement annulé !
+        <a href="{% url 'accueilBoutique' %}">Retourner à la boutique</a>
+        ou
+        <a href="{% url 'cartPage' %}">retourner au panier</a>
+    </h3>
+
+</div>
+
+{% endblock %}
