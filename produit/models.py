@@ -21,13 +21,17 @@ class Produit(models.Model):
     veryShortDesc = models.CharField(max_length=60, validators=[MinLengthValidator(32)], null=True)
     shortDesc = models.CharField(max_length=300, null=True)
     longDesc = models.CharField(max_length=2000, null=True)
+    stripeId = models.CharField(max_length=20, null=True)
 
     def __str__(self):
         return self.nom
 
     def savings(self):
-        return self.prixBrut-self.prixReel
+        return self.prixBrut - self.prixReel
+
+    def cashBackPercent(self):
+        value = int((self.savings() / self.prixBrut) * 100)
+        return value
 
     def cashBackValue(self):
-        value = int((self.savings()/self.prixBrut)*100)
-        return value
+        return self.savings()

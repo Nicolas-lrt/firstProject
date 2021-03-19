@@ -98,7 +98,7 @@
                             <a href="{% url 'productDetail' produit.nom %}" style="color: black">{{ produit.nom }}</a>
                         </h6>
                         <div class="col-md-4">
-                            <p style="font-size: 27px; color: black"><strong>-{{ produit.cashBackValue }}%</strong></p>
+                            <p style="font-size: 27px; color: black"><strong>-{{ produit.cashBackPercent }}%</strong></p>
                         </div>
                         <div class="col-md-4">
                             <p style="text-decoration: line-through; text-align: center">${{ produit.prixBrut }}</p>
@@ -137,7 +137,7 @@
                             <a href="{% url 'productDetail' produit.nom %}" style="color: black">{{ produit.nom }}</a>
                         </h6>
                         <div class="col-md-4">
-                            <p style="font-size: 27px; color: black"><strong>-{{ produit.cashBackValue }}%</strong></p>
+                            <p style="font-size: 27px; color: black"><strong>-{{ produit.cashBackPercent }}%</strong></p>
                         </div>
                         <div class="col-md-4">
                             <p style="text-decoration: line-through; text-align: center">$XXX</p>

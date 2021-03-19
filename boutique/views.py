@@ -1,6 +1,7 @@
 import stripe
 from django.conf import settings
 from django.contrib import messages
+from django.core.handlers.wsgi import WSGIRequest
 from django.http import JsonResponse, HttpResponse
 
 from django.shortcuts import render, redirect, get_object_or_404
@@ -75,6 +76,7 @@ def removeFromCart(request, pk):
 def clearCart(request):
     client = Compte.objects.get(userId=request.user.id)
     CartLine.objects.filter(client_id=client.id).delete()
+    print('clearCart')
 
     return redirect(request.META.get('HTTP_REFERER'))
 
@@ -95,6 +97,7 @@ def cartPage(request):
     for cart_line in cart:
         total += cart_line.total()
         qtyTotal += cart_line.quantity
+    print(request)
 
     return render(request, 'boutique/cart.html', {'cart': cart, 'total': total, 'qtyTotal': qtyTotal})
 
@@ -137,12 +140,17 @@ def create_checkout_session(request):
         cart = CartLine.objects.filter(client__in=client)
         lineItems = []
         for cartLine in cart:
-            lineItems += {
-                'name': str(cartLine.product.nom),
-                'quantity': cartLine.quantity,
-                'currency': 'eur',
-                'amount': str(cartLine.product.prixReel * 10)
-            }
+            i = 0
+            lineItems += [
+                {
+                    'name': cartLine.product.nom,
+                    'quantity': cartLine.quantity,
+                    'currency': 'eur',
+                    'amount': str(int(cartLine.product.prixReel * 100)),
+                }
+            ]
+
+        print(lineItems)
         try:
             # Create new Checkout Session for the order
             # Other optional params include:
@@ -158,16 +166,17 @@ def create_checkout_session(request):
                 cancel_url=domain_url + 'boutique/cancelled/',
                 payment_method_types=['card'],
                 mode='payment',
-                # line_items=lineItems
-                line_items=[
-                    {
-                        'name': 'T-shirt',
-                        'quantity': 1,
-                        'currency': 'eur',
-                        'amount': '2000',
-                    }
-                ]
+                line_items=lineItems
+                # line_items=[
+                #     {
+                #         'name': cartLine.product.nom,
+                #         'quantity': cartLine.quantity,
+                #         'currency': 'eur',
+                #         'amount': str(int(cartLine.product.prixReel * 100)),
+                #     }
+                # ]
             )
+
             return JsonResponse({'sessionId': checkout_session['id']})
         except Exception as e:
             return JsonResponse({'error': str(e)})
@@ -203,7 +212,6 @@ def stripe_webhook(request):
     # Handle the checkout.session.completed event
     if event['type'] == 'checkout.session.completed':
         print("Payment was successful.")
-        #  run some custom code here
-        clearCart(request)
+
 
     return HttpResponse(status=200)
