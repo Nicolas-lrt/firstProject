@@ -1,5 +1,9 @@
 {% extends 'main.html' %}
 {% block contenu %}
+<script>
+    fetch("/boutique/clear-cart/")
+    .then((result) => { return result.json(); })
+</script>
 <!--Sub Banner-->
 <div class="profile-bnr sub-bnr user-profile-bnr">
     <div class="position-center-center">
@@ -20,3 +24,4 @@
 </div>
 
 {% endblock %}
+
