@@ -60,5 +60,8 @@
     <h5>Panier vide</h5>
     <p>Remplissez le en <a href="{% url 'accueilBoutique' %}">retournant à la boutique</a> !</p>
     {% endif %}
+    <br>
+    <br>
+    <a class="btn btn-primary" href="{% url 'orders' %}">Commandes précédentes</a>
 </div>
 {% endblock %}

@@ -1,6 +1,9 @@
 {% extends 'main.html' %}
 {% block contenu %}
 <script>
+    fetch("/boutique/create-order/")
+    .then((result) => { return result.json(); });
+
     fetch("/boutique/clear-cart/")
     .then((result) => { return result.json(); })
 </script>

@@ -1,3 +1,4 @@
+import datetime
 import stripe
 from django.conf import settings
 from django.contrib import messages
@@ -13,7 +14,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 
 from boutique.forms import payChoiceForm
-from compte.models import Compte, CartLine
+from compte.models import Compte, CartLine, Order, OrderDetail
 from produit.models import Produit
 
 
@@ -59,6 +60,24 @@ def addToCart(request, pk, qty):
         return redirect(reverse('accueilBoutique'))
 
 
+def createOrder(request):
+    client = Compte.objects.get(userId=request.user.id)
+    order = Order(client_id=client.id, order_date=datetime.datetime.now())
+    order.save()
+
+    cart = CartLine.objects.filter(client_id=client.id)
+    for cartline in cart:
+        order_detail = OrderDetail(order_id=order.id,
+                                   product_id=cartline.product.id,
+                                   qty=cartline.quantity,
+                                   product_unit_price=cartline.product.prixReel
+                                   )
+        order_detail.save()
+    cart.delete()
+    if request.META.get('HTTP_REFERER'):
+        return redirect(request.META.get('HTTP_REFERER'))
+
+
 @login_required(login_url='login')
 def removeFromCart(request, pk):
     client = Compte.objects.get(user_id=request.user.id)
@@ -102,6 +121,14 @@ def cartPage(request):
     return render(request, 'boutique/cart.html', {'cart': cart, 'total': total, 'qtyTotal': qtyTotal})
 
 
+def orderPage(request):
+    client = Compte.objects.get(userId=request.user.id)
+    orders = Order.objects.filter(client_id=client.id)
+    # orderDetails = OrderDetail.objects.filter(order_id=orders.id)
+
+    return render(request, 'boutique/orders.html', {'orders': orders})
+
+
 @login_required(login_url='login')
 def cartRecap(request):
     total = 0
@@ -122,6 +149,7 @@ def cartRecap(request):
 
     return render(request, 'boutique/cartRecap.html',
                   {'cart': cart, 'total': total, 'qtyTotal': qtyTotal, 'payForm': form})
+
 
 
 @csrf_exempt

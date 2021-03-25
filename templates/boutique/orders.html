@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% block contenu %}
+<!--Sub Banner-->
+<div class="profile-bnr sub-bnr user-profile-bnr">
+    <div class="position-center-center">
+        <div class="container">
+            <div class="col-md-10">
+                <h2><a href="{% url 'accueilBoutique' %}" style="color: white">So'ko Shop</a></h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1>Mes commandes</h1>
+    {% if orders %}
+    {% for order in orders %}
+    <h5>Id commande : {{ order.id }}</h5>
+    <p>Quantité d'articles : {{ order.article_qty }}</p>
+    <p>Total : {{ order.total }}</p>
+
+    {% endfor %}
+
+    {% else %}
+    <h5>Aucune commande précédemment effectuée</h5>
+    {% endif %}
+    <br>
+    <br>
+    <a class="btn btn-primary" href="{% url 'cartPage' %}">Retour panier</a>
+</div>
+{% endblock %}

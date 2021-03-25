@@ -16,5 +16,7 @@ urlpatterns = [
     path('success/', views.SuccessView.as_view()),
     path('cancelled/', views.CancelledView.as_view()),
     path('webhook/', views.stripe_webhook),
+    path('create-order/', views.createOrder, name='createOrder'),
+    path('orders/', views.orderPage, name='orders'),
 
 ]
