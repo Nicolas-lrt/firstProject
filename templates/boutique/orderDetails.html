@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% block contenu %}
+<!--Sub Banner-->
+<div class="profile-bnr sub-bnr user-profile-bnr">
+    <div class="position-center-center">
+        <div class="container">
+            <div class="col-md-10">
+                <h2><a href="{% url 'accueilBoutique' %}" style="color: white">So'ko Shop</a></h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1>Mes commandes</h1>
+
+        <h5>Id commande : {{ order.id }}</h5>
+        {% for detail in orderDetail %}
+            <div class="col-sm-4">
+                <a href="{% url 'productDetail' detail.product.nom %}">
+                    <strong style="color: black">{{ detail.product.nom }}</strong>
+                </a>
+                <br>
+                Quantité : {{ detail.qty }}
+                <br>
+                Prix unitaire : {{ detail.product.prixReel }}€
+                <br>
+                Total : {{ detail.total }}€
+            </div>
+        {% endfor %}
+
+    <br>
+    <br>
+    <div class="col-sm-12">
+        <h6>Commande passée le : {{ order.order_date }}</h6>
+        <h6>Total commande : {{ order.total }}€</h6>
+        <br>
+        <br>
+        <a class="btn btn-primary" href="{% url 'orders' %}">Retour liste commandes</a>
+    </div>
+</div>
+{% endblock %}

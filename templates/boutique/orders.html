@@ -13,18 +13,21 @@
 <div class="container">
     <h1>Mes commandes</h1>
     {% if orders %}
-    {% for order in orders %}
-    <h5>Id commande : {{ order.id }}</h5>
-    <p>Quantité d'articles : {{ order.article_qty }}</p>
-    <p>Total : {{ order.total }}</p>
-
-    {% endfor %}
-
+        {% for order in orders %}
+            <div class="col-sm-4">
+                <h5>Id commande : {{ order.id }}</h5>
+                <p>Nombres d'articles : {{ order.article_qty }}</p>
+                <p>Total : {{ order.total }}€</p>
+                <a href="{% url 'orderDetail' order.id %}" class="btn mb20 btn-small btn-transparent-primary">Détails</a>
+            </div>
+        {% endfor %}
     {% else %}
-    <h5>Aucune commande précédemment effectuée</h5>
+        <h5>Aucune commande précédemment effectuée</h5>
     {% endif %}
     <br>
     <br>
-    <a class="btn btn-primary" href="{% url 'cartPage' %}">Retour panier</a>
+    <div class="col-sm-12">
+        <a class="btn btn-primary" href="{% url 'cartPage' %}">Retour panier</a>
+    </div>
 </div>
 {% endblock %}

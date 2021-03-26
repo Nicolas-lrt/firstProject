@@ -18,5 +18,6 @@ urlpatterns = [
     path('webhook/', views.stripe_webhook),
     path('create-order/', views.createOrder, name='createOrder'),
     path('orders/', views.orderPage, name='orders'),
+    path('order-detail/<str:pk>/', views.orderDetails, name='orderDetail'),
 
 ]

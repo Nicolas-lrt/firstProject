@@ -4,8 +4,6 @@
     fetch("/boutique/create-order/")
     .then((result) => { return result.json(); });
 
-    fetch("/boutique/clear-cart/")
-    .then((result) => { return result.json(); })
 </script>
 <!--Sub Banner-->
 <div class="profile-bnr sub-bnr user-profile-bnr">
@@ -23,6 +21,9 @@
         Paiement effectué !
         <a href="{% url 'accueilBoutique' %}">Retourner à la boutique</a>
     </h4>
+    <br>
+    <br>
+    <a href="{% url 'orders' %}" class="btn btn-primary">Voir les commandes</a>
 
 </div>
 

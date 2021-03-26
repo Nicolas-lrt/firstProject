@@ -62,18 +62,19 @@ def addToCart(request, pk, qty):
 
 def createOrder(request):
     client = Compte.objects.get(userId=request.user.id)
-    order = Order(client_id=client.id, order_date=datetime.datetime.now())
-    order.save()
-
     cart = CartLine.objects.filter(client_id=client.id)
-    for cartline in cart:
-        order_detail = OrderDetail(order_id=order.id,
-                                   product_id=cartline.product.id,
-                                   qty=cartline.quantity,
-                                   product_unit_price=cartline.product.prixReel
-                                   )
-        order_detail.save()
-    cart.delete()
+    if cart:
+        order = Order(client_id=client.id, order_date=datetime.datetime.now())
+        order.save()
+
+        for cartline in cart:
+            order_detail = OrderDetail(order_id=order.id,
+                                       product_id=cartline.product.id,
+                                       qty=cartline.quantity,
+                                       product_unit_price=cartline.product.prixReel
+                                       )
+            order_detail.save()
+        cart.delete()
     if request.META.get('HTTP_REFERER'):
         return redirect(request.META.get('HTTP_REFERER'))
 
@@ -124,9 +125,14 @@ def cartPage(request):
 def orderPage(request):
     client = Compte.objects.get(userId=request.user.id)
     orders = Order.objects.filter(client_id=client.id)
-    # orderDetails = OrderDetail.objects.filter(order_id=orders.id)
 
     return render(request, 'boutique/orders.html', {'orders': orders})
+
+
+def orderDetails(request, pk):
+    order = Order.objects.get(id=pk)
+    orderDetail = OrderDetail.objects.filter(order_id=order.id)
+    return render(request, 'boutique/orderDetails.html', {'orderDetail': orderDetail, 'order': order})
 
 
 @login_required(login_url='login')

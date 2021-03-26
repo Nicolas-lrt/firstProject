@@ -69,7 +69,10 @@ class Order(models.Model):
 
     def article_qty(self):
         order_details = OrderDetail.objects.filter(order_id=self.id)
-        return len(order_details)
+        total = 0
+        for detail in order_details:
+            total += detail.qty
+        return total
 
 
 class OrderDetail(models.Model):
