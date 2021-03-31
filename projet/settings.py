@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'membre',
     'compte',
     'boutique',
+    'projets',
 ]
 
 MIDDLEWARE = [

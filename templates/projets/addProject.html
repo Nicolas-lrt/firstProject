@@ -1,0 +1,136 @@
+{% extends 'main.html' %}
+{% block contenu %}
+<!--Sub Banner-->
+<div class="profile-bnr sub-bnr user-profile-bnr">
+    <div class="position-center-center">
+        <div class="container">
+            <div class="col-md-10">
+                <h2>Apporter un projet</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Dossier</h2>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="col-sm-6">
+            <h5>Contact</h5>
+            <div class="col-sm-3">
+                <label for="prenom">Prénom </label>
+            </div>
+            <div class="col-sm-9">
+                <input type="text" id="prenom" name="prenom">
+            </div>
+            <div class="col-sm-3">
+                <label for="nom">Nom </label>
+            </div>
+            <div class="col-sm-9">
+                <input type="text" id="nom" name="nom">
+            </div>
+            <div class="col-sm-3">
+                <label for="email">Email </label>
+            </div>
+            <div class="col-sm-9">
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="col-sm-3">
+                <label for="tel">Téléphone </label>
+            </div>
+            <div class="col-sm-9">
+                <input type="text" id="tel" name="tel">
+            </div>
+            <div class="col-sm-3">
+                <label for="siret">SIRET de la société </label>
+            </div>
+            <div class="col-sm-9">
+                <input type="text" id="siret" name="siret">
+            </div>
+            <div class="col-sm-3">
+                <label for="fct">Fonction </label>
+            </div>
+            <div class="col-sm-9">
+                <input type="text" id="fct" name="fct">
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <h5>Besoin</h5>
+            <div class="col-sm-4">
+                <label for="besoin">Typologie du besoin </label>
+            </div>
+            <div class="col-sm-8">
+                <select required aria-label="select example" id="besoin" name="besoin">
+                    <option value="">Choisir un secteur</option>
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <label for="montant">Montant global recherché </label>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" id="montant" name="montant">
+            </div>
+        </div>
+        <div class="col-sm-12"></div>
+        <div class="col-sm-6">
+            <h5>Le projet</h5>
+            <div class="col-sm-3">
+                <label for="projectName">Nom du projet </label>
+            </div>
+            <div class="col-sm-9">
+                <input type="text" id="projectName" name="projectName">
+            </div>
+            <div class="col-sm-3">
+                <label for="projectDate">Date du besoin </label>
+            </div>
+            <div class="col-sm-9">
+                <input type="text" id="projectDate" name="projectDate">
+            </div>
+            <div class="col-sm-3">
+                <label for="descProj">Description du projet</label>
+            </div>
+            <div class="col-sm-9">
+                <textarea id="descProj" name="desc"></textarea>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h5>Documents</h5>
+            <div class="col-sm-6">
+                <label for="societe">Présentation de la société</label>
+            </div>
+            <div class="col-sm-6">
+                <input type="file" id="societe" name="societe">
+            </div>
+            <br>
+            <br>
+            <div class="col-sm-6">
+                <label for="bilan">Dernier bilan</label>
+            </div>
+            <div class="col-sm-6">
+                <input type="file" id="bilan" name="bilan">
+            </div>
+            <br>
+            <br>
+            <div class="col-sm-6">
+                <label for="example">Exemples de projets réussis</label>
+            </div>
+            <div class="col-sm-6">
+                <input type="file" id="example" name="example">
+            </div>
+            <br>
+            <br>
+            <div class="col-sm-6">
+                <label for="descOp">Description de l'opération</label>
+            </div>
+            <div class="col-sm-6">
+                <input type="file" id="descOp" name="descOp">
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <button class="btn mb20 btn-medium btn-primary" type="submit">OK</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

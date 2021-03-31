@@ -144,17 +144,17 @@ def cartRecap(request):
     for cart_line in cart:
         total += cart_line.total()
         qtyTotal += cart_line.quantity
-    form = payChoiceForm()
-    if request.method == 'POST':
-        form = payChoiceForm(request.POST)
-        if form.is_valid():
-            if request.POST.get('choiceForm') == "1":
-                return redirect('stripePayment')
-            else:
-                return redirect('accueilBoutique')
+    # form = payChoiceForm()
+    # if request.method == 'POST':
+    #     form = payChoiceForm(request.POST)
+    #     if form.is_valid():
+    #         if request.POST.get('choiceForm') == "1":
+    #             return redirect('stripePayment')
+    #         else:
+    #             return redirect('accueilBoutique')
 
     return render(request, 'boutique/cartRecap.html',
-                  {'cart': cart, 'total': total, 'qtyTotal': qtyTotal, 'payForm': form})
+                  {'cart': cart, 'total': total, 'qtyTotal': qtyTotal})
 
 
 
