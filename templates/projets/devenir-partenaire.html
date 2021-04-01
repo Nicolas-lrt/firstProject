@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% block contenu %}
+
+<!--Sub Banner-->
+<div class="profile-bnr sub-bnr user-profile-bnr">
+    <div class="position-center-center">
+        <div class="container">
+            <div class="col-md-10">
+                <h2>Devenir partenaire</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!--navbar-->
+<div class="box-shadow-for-ui">
+    <div class="uou-block-2b">
+        <div class="container">
+            <nav class="nav">
+                <ul class="sf-menu">
+                    <li><a href="{% url 'devenirPartenaire' %}">Devenir partenaire</a></li>
+                    <li><a href="{% url 'chartePage' %}">Charte</a></li>
+                    <li><a href="{% url 'commentInvestir' %}">Comment investir</a></li>
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h4 style="text-align: center">Devenez apporteur d'affaires</h4>
+
+    <p style="text-align: center">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Maiores explicabo numquam accusamus voluptatibus odit! Assumenda, tempore, dolorum explicabo iusto
+        molestiae numquam laudantium vero doloremque neque quod id temporibus nemo nam itaque ratione.
+    </p>
+
+    <br>
+    <a style="margin-left: 38%"
+       class="btn mb20 btn-large btn-primary"
+       href="{% url 'addProject' %}">Apporter un projet</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+{% block contenu %}
+
+<!--Sub Banner-->
+<div class="profile-bnr sub-bnr user-profile-bnr">
+    <div class="position-center-center">
+        <div class="container">
+            <div class="col-md-10">
+                <h2>Charte</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!--navbar-->
+<div class="box-shadow-for-ui">
+    <div class="uou-block-2b">
+        <div class="container">
+            <nav class="nav">
+                <ul class="sf-menu">
+                    <li><a href="{% url 'devenirPartenaire' %}">Devenir partenaire</a></li>
+                    <li><a href="{% url 'chartePage' %}">Charte</a></li>
+                    <li><a href="{% url 'commentInvestir' %}">Comment investir</a></li>
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1 style="text-align: center">Charte d'engagement</h1>
+</div>
+{% endblock %}
