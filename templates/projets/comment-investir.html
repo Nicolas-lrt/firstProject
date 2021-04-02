@@ -28,7 +28,51 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="">
     <h1 style="text-align: center">Conseils d'investissement</h1>
+    <div class="row">
+        <div class="col-sm-2" style="margin-left: 8%">
+            <div class="uou-block-8d">
+                <i class="fa fa-paper-plane-o"></i>
+                <h5>Inscrivez-vous</h5>
+                <p>Lorem ipsum dolor si amet</p>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="uou-block-8d">
+                <i class="fa fa-paw"></i>
+                <h5>Participez</h5>
+                <p>Lorem ipsum dolor si amet</p>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="uou-block-8d">
+                <i class="fa fa-university"></i>
+                <h5>Investissez</h5>
+                <p>Lorem ipsum dolor si amet</p>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="uou-block-8d">
+                <i class="fa fa-ticket"></i>
+                <h5>Suivez</h5>
+                <p>Lorem ipsum dolor si amet</p>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="uou-block-8d">
+                <i class="fa fa-rocket"></i>
+                <h5>Récoltez</h5>
+                <p>Lorem ipsum dolor si amet</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        {% if user.is_anonymous %}
+        <a class="btn mb20 btn-medium btn-primary" href="{% url 'register' %}">S'inscrire/Se connecter</a>
+        {% endif %}
+    <br>
+    </div>
 </div>
 {% endblock %}
