@@ -5,7 +5,22 @@
     .page{
         display: none;
     }
-
+    header{
+        display: flex;
+        justify-content: space-between;
+    }
+    .page-num{
+        border: 1px solid #0099ff;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        text-align: center;
+        padding: 10px;
+    }
+    .active{
+        color: white;
+        background-color: #0099ff;
+    }
 </style>
 <!--Sub Banner-->
 <div class="profile-bnr sub-bnr user-profile-bnr">
@@ -19,6 +34,7 @@
 </div>
 
 <div class="container">
+    <header class="formHeader"></header>
     <form method="POST" action="">
         {% csrf_token %}
 <!--        <div class="col-sm-6">-->

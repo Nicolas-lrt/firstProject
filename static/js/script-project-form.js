@@ -1,6 +1,6 @@
 // On va chercher les différents éléments de notre page
 const pages = document.querySelectorAll(".page")
-//const header = document.querySelector("header")
+const header = document.querySelector(".formHeader")
 const nbPages = pages.length // Nombre de pages du formulaire
 let pageActive = 1
 
@@ -11,17 +11,17 @@ window.onload = () => {
 
     // On affiche les numéros des pages dans l'entête
     // On parcourt la liste des pages
-//    pages.forEach((page, index) => {
-//        // On crée l'élément "numéro de page"
-//        let element = document.createElement("div")
-//        element.classList.add("page-num")
-//        element.id = "num" + (index + 1)
-//        if(pageActive === index + 1){
-//            element.classList.add("active")
-//        }
-//        element.innerHTML = index + 1
-//        header.appendChild(element)
-//    })
+    pages.forEach((page, index) => {
+        // On crée l'élément "numéro de page"
+        let element = document.createElement("div")
+        element.classList.add("page-num")
+        element.id = "num" + (index + 1)
+        if(pageActive === index + 1){
+            element.classList.add("active")
+        }
+        element.innerHTML = index + 1
+        header.appendChild(element)
+    })
 
     // On gère les boutons "suivant"
     let boutons = document.querySelectorAll(".next")
@@ -57,7 +57,7 @@ function pageSuivante(){
     pageActive++
 
     // On "active" le nouveau numéro
-//    document.querySelector("#num"+pageActive).classList.add("active")
+    document.querySelector("#num"+pageActive).classList.add("active")
 }
 
 /**
@@ -79,5 +79,5 @@ function pagePrecedente(){
     pageActive--
 
     // On "active" le nouveau numéro
-//    document.querySelector("#num"+pageActive).classList.add("active")
+    document.querySelector("#num"+pageActive).classList.add("active")
 }
