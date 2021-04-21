@@ -104,6 +104,9 @@
 <!--        </div>-->
         <div class="page" id="etape1">
             <h2>Projet</h2>
+            <div class="col-sm-12">
+                <button style="margin-left: 91%" class="next btn mb20 btn-small btn-transparent-primary" type="button">Suivant</button>
+            </div>
             <div class="col-sm-6">
                 <h4>Présentation du projet</h4>
                 <div class="col-sm-3"><label for="projectName">Nom du projet </label></div>
@@ -115,33 +118,40 @@
                 <div class="col-sm-3"><label for="descProj">Description du projet</label></div>
                 <div class="col-sm-9"><textarea id="descProj" name="desc"></textarea></div>
             </div>
+
             <div class="col-sm-6">
                 <h4>Présentation de l'équipe</h4>
-                <textarea name="presentationProjet"></textarea>
+                <div class="col-sm-9"><label for="nbMembre">Nombre de membre </label></div>
+                <div class="col-sm-3"><input type="number" id="nbMembre" name="nbMembre"></div>
             </div>
+
             <div class="col-sm-6">
                 <h4>Notre analyse</h4>
                 <textarea name="presentationProjet"></textarea>
             </div>
+
             <div class="col-sm-6">
                 <h4>Les étapes de developpement</h4>
                 <textarea name="presentationProjet"></textarea>
             </div>
+
             <div class="col-sm-6">
                 <h4>Stratégie de sortie envisageable</h4>
                 <textarea name="presentationProjet"></textarea>
             </div>
+
             <div class="col-sm-6">
                 <h4>Usage des fonds</h4>
                 <textarea name="presentationProjet"></textarea>
-            </div>
-            <div class="col-sm-12">
-                <button class="next" type="button">Suivant</button>
             </div>
         </div>
 
         <div class="page" id="etape2">
             <h2>Détails</h2>
+            <div class="col-sm-12">
+                <button style="margin-left: 80%" class="prev btn mb20 btn-small btn-transparent-primary" type="button">Précédent</button>
+                <button class="next btn mb20 btn-small btn-transparent-primary" type="button">Suivant</button>
+            </div>
             <div class="col-sm-6">
                 <h5>Contact</h5>
                 <div class="col-sm-3"><label for="prenom">Prénom </label></div>
@@ -179,35 +189,31 @@
                 <div class="col-sm-6"><label for="descOp">Description de l'opération</label></div>
                 <div class="col-sm-6"><input type="file" id="descOp" name="descOp"></div>
             </div>
+        </div>
+
+        <div class="page" id="etape3">
+            <h2>News</h2>
             <div class="col-sm-12">
-                <button class="prev" type="button">Précédent</button>
-                <button class="next" type="button">Suivant</button>
+                <button style="margin-left: 80%" class="prev btn mb20 btn-small btn-transparent-primary" type="button">Précédent</button>
+                <button class="next btn mb20 btn-small btn-transparent-primary" type="button">Suivant</button>
             </div>
         </div>
 
-            <div class="page" id="etape3">
-                <h2>News</h2>
-                <div class="col-sm-12">
-                    <button class="prev" type="button">Précédent</button>
-                    <button class="next" type="button">Suivant</button>
-                </div>
+        <div class="page" id="etape4">
+            <h2>Questions</h2>
+            <div class="col-sm-12">
+                <button style="margin-left: 80%" class="prev btn mb20 btn-small btn-transparent-primary" type="button">Précédent</button>
+                <button class="next btn mb20 btn-small btn-transparent-primary" type="button">Suivant</button>
             </div>
+        </div>
 
-            <div class="page" id="etape4">
-                <h2>Questions</h2>
-                <div class="col-sm-12">
-                    <button class="prev" type="button">Précédent</button>
-                    <button class="next" type="button">Suivant</button>
-                </div>
+        <div class="page" id="etape5">
+            <h2>Témoignage</h2>
+            <div class="col-sm-12">
+                <button style="margin-left: 80%" class="prev btn mb20 btn-small btn-transparent-primary"  type="button">Précédent</button>
+                <button class="btn mb20 btn-small btn-primary">Valider</button>
             </div>
-
-            <div class="page" id="etape5">
-                <h2>Témoignage</h2>
-                <div class="col-sm-12">
-                    <button class="prev" type="button">Précédent</button>
-                    <button>Valider</button>
-                </div>
-            </div>
+        </div>
     </form>
 </div>
 <script src="{% static 'js/script-project-form.js' %}"></script>
