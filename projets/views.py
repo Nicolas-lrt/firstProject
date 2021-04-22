@@ -10,7 +10,11 @@ def addProject(request):
 
 
 def devenirPartenaire(request):
-    return render(request, 'projets/devenir-partenaire.html')
+    porteur = 0
+    for group in request.user.groups.all():
+        if group.name == 'porteur-investisseur':
+            porteur = 1
+    return render(request, 'projets/devenir-partenaire.html', {'porteur': porteur})
 
 
 def chartePage(request):
@@ -19,3 +23,7 @@ def chartePage(request):
 
 def commentInvestir(request):
     return render(request, 'projets/comment-investir.html')
+
+@login_required(login_url='login')
+def pq_sabonner(request):
+    return render(request, 'projets/pourquoi_s-abonner.html')

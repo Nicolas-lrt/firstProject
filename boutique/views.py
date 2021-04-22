@@ -96,7 +96,6 @@ def removeFromCart(request, pk):
 def clearCart(request):
     client = Compte.objects.get(userId=request.user.id)
     CartLine.objects.filter(client_id=client.id).delete()
-    print('clearCart')
 
     return redirect(request.META.get('HTTP_REFERER'))
 

@@ -17,15 +17,41 @@
             </ul>
             <ul class="authentication">
 
-                <li><a class="btn mb20 btn-small btn-primary" href="{% url 'devenirPartenaire' %}">Devenir partenaire</a></li>
+                <li>
+                    <a class="btn mb20 btn-small btn-primary"
+                       href="{% url 'devenirPartenaire' %}"
+                       {% for group in request.user.groups.all %}
+                           {% if group.name == 'porteur-investisseur' %}
+                               style="display: none"
+                           {% endif %}
+                       {% endfor %}>Devenir partenaire</a>
+                </li>
+                {% for group in request.user.groups.all %}
+                   {% if group.name == 'porteur-investisseur' %}
+                        <li>
+                            <a class="btn mb20 btn-small btn-primary"
+                               href="{% url 'devenirPartenaire' %}">
+                                    Espace partenaire
+                            </a>
+                        </li>
+                   {% endif %}
+                {% endfor %}
+
                 {% if request.user.is_anonymous %}
                 <li><a href="{% url 'login' %}">Login|</a></li>
                 <li><a href="{% url 'register' %}">Register</a></li>
                 {% else %}
-                <li><label>Hello, {{ request.user }}.</label></li>
-                <li><a href="{% url 'logout' %}"><strong>Logout</strong></a></li>
+                <li>
+                    <label>Hello, {{ request.user }}.</label>
+                        {% for group in request.user.groups.all %}
+                            {% if group.name == 'porteur-investisseur' %}
+                                <i class="fa fa-suitcase">Partenaire</i>
+                            {% endif %}
+                        {% endfor %}
+                </li>
+                <li><a  style="  margin-top: 12%;
+                                margin-left: 10%" href="{% url 'logout' %}"><strong>Logout</strong></a></li>
                 {% endif %}
-
             </ul>
             <div class="language"><a href="#" class="toggle"><img src="{% static 'images/flags/32/US.png' %}" alt="">ENG</a>
                 <ul>

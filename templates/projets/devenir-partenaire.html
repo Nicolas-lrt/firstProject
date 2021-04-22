@@ -28,6 +28,7 @@
         </div>
     </div>
 </div>
+
 <div class="container">
     <h1 style="text-align: center">Devenez apporteur d'affaires</h1>
 
@@ -39,14 +40,27 @@
 
     <br>
     {% if user.is_anonymous %}
-    <a style="margin-left: 38%"
-       class="btn mb20 btn-large btn-primary"
-       href="{% url 'register' %}">S'inscrire</a>
+        <a style="margin-left: 38%"
+           class="btn mb20 btn-large btn-primary"
+           href="{% url 'register' %}">S'inscrire</a>
     {% else %}
-    <a style="margin-left: 38%"
-       class="btn mb20 btn-large btn-primary"
-       href="{% url 'addProject' %}">Apporter un projet</a>
+        {% if porteur == 1 %}
+            <a style="margin-left: 38%"
+               class="btn mb20 btn-large btn-primary"
+               href="{% url 'addProject' %}">Apporter un projet</a>
+        {% else %}
+            <a style="margin-left: 38%"
+               class="btn mb20 btn-large btn-primary"
+               href="{% url 'sabonner' %}">Devenir partenaire</a>
+        {% endif %}
     {% endif %}
+
+            <!--Test-->
+            <a style="margin-left: 38%"
+               class="btn mb20 btn-large btn-primary"
+               href="{% url 'sabonner' %}">Devenir partenaire</a>
+            <!--Test-->
+
     <br>
     <h6>Lorem ipsum tederum salamus</h6>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.

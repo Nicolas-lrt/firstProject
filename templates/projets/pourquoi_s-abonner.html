@@ -1,0 +1,63 @@
+{% extends 'main.html' %}
+{% block contenu %}
+
+<!--Sub Banner-->
+<div class="profile-bnr sub-bnr user-profile-bnr">
+    <div class="position-center-center">
+        <div class="container">
+            <div class="col-md-10">
+                <h2>Devenir partenaire</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!--navbar-->
+<div class="box-shadow-for-ui">
+    <div class="uou-block-2b">
+        <div class="container">
+            <nav class="nav">
+                <ul class="sf-menu">
+                    <li><a href="{% url 'devenirPartenaire' %}">Devenir partenaire</a></li>
+                    <li><a href="{% url 'chartePage' %}">Charte</a></li>
+                    <li><a href="{% url 'commentInvestir' %}">Comment investir</a></li>
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 style="text-align: center">Pourquoi devenir porteur-investisseur ?</h1>
+    <h4>Avantages</h4>
+    <div class="col-sm-6">
+        <ul class="list-icon">
+            <li><i class="fa fa-circle"></i>Plateforme technique et créative</li>
+            <li><i class="fa fa-circle"></i>Accès aux catalogues formation + forma, masterclass etc...gratuit (vip)</li>
+            <li><i class="fa fa-circle"></i>Carte bancaire tontine cash back</li>
+            <li><i class="fa fa-circle"></i>Forum juridique niveau 2</li>
+            <li><i class="fa fa-circle"></i>Opportunité commerciale</li>
+            <li><i class="fa fa-circle"></i>Le guide économique en ligne </li>
+            <li><i class="fa fa-circle"></i>Les newsletter concernant les nouveautés, les réductions, les bon plans</li>
+            <li><i class="fa fa-circle"></i>Des cheques promo et cadeaux</li>
+        </ul>
+    </div>
+    <div class="col-sm-6">
+        <ul class="list-icon">
+            <li><i class="fa fa-circle"></i>Poster des projets</li>
+            <li><i class="fa fa-circle"></i>Un badge visiteur gratuit pour les évènements ENEA CLUB</li>
+            <li><i class="fa fa-circle"></i>Fond d’investissement vous donne droit à 4 projets finançables</li>
+            <li><i class="fa fa-circle"></i>Partenaire sur nos évènements</li>
+            <li><i class="fa fa-circle"></i>Conciergerie d’affaire</li>
+            <li><i class="fa fa-circle"></i>Service personnalisé NGC</li>
+            <li><i class="fa fa-circle"></i>Mutuelle</li>
+            <li><i class="fa fa-circle"></i>Réseau Partage & entraide vie perso</li>
+            <li><i class="fa fa-circle"></i>Offre Loisirs solidaire et éducatif</li>
+        </ul>
+    </div>
+    <a class="btn mb20 btn-large btn-transparent-primary col-sm-7" style="margin-left: 20%" href="#">Adhérer (709€/an)</a>
+</div>
+
+{% endblock %}
