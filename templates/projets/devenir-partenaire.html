@@ -43,16 +43,14 @@
         <a style="margin-left: 38%"
            class="btn mb20 btn-large btn-primary"
            href="{% url 'register' %}">S'inscrire</a>
+    {% elif porteur == 1 %}
+        <a style="margin-left: 38%"
+           class="btn mb20 btn-large btn-primary"
+           href="{% url 'addProject' %}">Apporter un projet</a>
     {% else %}
-        {% if porteur == 1 %}
-            <a style="margin-left: 38%"
-               class="btn mb20 btn-large btn-primary"
-               href="{% url 'addProject' %}">Apporter un projet</a>
-        {% else %}
-            <a style="margin-left: 38%"
-               class="btn mb20 btn-large btn-primary"
-               href="{% url 'sabonner' %}">Devenir partenaire</a>
-        {% endif %}
+        <a style="margin-left: 38%"
+           class="btn mb20 btn-large btn-primary"
+           href="{% url 'sabonner' %}">Devenir partenaire</a>
     {% endif %}
 
             <!--Test-->

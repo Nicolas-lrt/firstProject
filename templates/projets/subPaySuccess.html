@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% block contenu %}
+<script>
+    fetch("/projets/partner/")
+    .then((result) => { return result.json(); });
+
+</script>
+<!--Sub Banner-->
+<div class="profile-bnr sub-bnr user-profile-bnr">
+    <div class="position-center-center">
+        <div class="container">
+            <div class="col-md-10">
+                <h2>Devenir partenaire</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h4 style="text-align: center">
+        Paiement effectué ! Vous êtes maintenant un Partenaire, bienvenue.
+    </h4>
+
+</div>
+
+{% endblock %}

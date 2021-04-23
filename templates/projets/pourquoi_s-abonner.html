@@ -1,6 +1,32 @@
 {% extends 'main.html' %}
 {% block contenu %}
+<script>
+    console.log("Sanity check");
 
+    //Get stripe publishable key
+    fetch("/projets/config/")
+    .then((result) => { return result.json(); })
+    .then((data) => {
+      // Initialize Stripe.js
+      const stripe = Stripe(data.publicKey);
+      console.log('fetch 1 reached');
+      //Event handler
+      document.querySelector("#payBtn").addEventListener("click", () => {
+          // Get Checkout Session ID
+          fetch("/projets/create-checkout-session/")
+          .then((result) => { return result.json(); })
+          .then((data) => {
+            console.log(data);
+            // Redirect to Stripe Checkout
+            return stripe.redirectToCheckout({sessionId: data.sessionId})
+          })
+          .then((res) => {
+              console.log(res);
+          });
+      });
+    });
+</script>
+<script src="https://js.stripe.com/v3/"></script>
 <!--Sub Banner-->
 <div class="profile-bnr sub-bnr user-profile-bnr">
     <div class="position-center-center">
@@ -57,7 +83,7 @@
             <li><i class="fa fa-circle"></i>Offre Loisirs solidaire et éducatif</li>
         </ul>
     </div>
-    <a class="btn mb20 btn-large btn-transparent-primary col-sm-7" style="margin-left: 20%" href="#">Adhérer (709€/an)</a>
+    <button class="btn mb20 btn-large btn-transparent-primary col-sm-7" style="margin-left: 20%" id="payBtn">Adhérer (709€/an)</button>
 </div>
 
 {% endblock %}

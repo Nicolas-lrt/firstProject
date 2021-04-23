@@ -13,7 +13,6 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 
-from boutique.forms import payChoiceForm
 from compte.models import Compte, CartLine, Order, OrderDetail
 from produit.models import Produit
 
@@ -143,18 +142,9 @@ def cartRecap(request):
     for cart_line in cart:
         total += cart_line.total()
         qtyTotal += cart_line.quantity
-    # form = payChoiceForm()
-    # if request.method == 'POST':
-    #     form = payChoiceForm(request.POST)
-    #     if form.is_valid():
-    #         if request.POST.get('choiceForm') == "1":
-    #             return redirect('stripePayment')
-    #         else:
-    #             return redirect('accueilBoutique')
 
     return render(request, 'boutique/cartRecap.html',
                   {'cart': cart, 'total': total, 'qtyTotal': qtyTotal})
-
 
 
 @csrf_exempt

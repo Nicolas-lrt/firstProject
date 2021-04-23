@@ -7,6 +7,11 @@ urlpatterns = [
     path('devenir-partenaire/', views.devenirPartenaire, name='devenirPartenaire'),
     path('charte/', views.chartePage, name='chartePage'),
     path('comment-investir/', views.commentInvestir, name='commentInvestir'),
-    path('devenir-porteur-investisseur', views.pq_sabonner, name='sabonner')
+    path('devenir-porteur-investisseur', views.pq_sabonner, name='sabonner'),
+    path('config/', views.stripe_config),
+    path('create-checkout-session/', views.create_checkout_session),
+    path('success/', views.SuccessView.as_view()),
+    path('cancelled/', views.CancelledView.as_view()),
+    path('partner/', views.newPartner),
 
 ]
