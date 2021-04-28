@@ -63,13 +63,14 @@ def create_checkout_session(request):
                 success_url=domain_url + 'projets/success?session_id={CHECKOUT_SESSION_ID}',
                 cancel_url=domain_url + 'projets/cancelled/',
                 payment_method_types=['card'],
-                mode='payment',
+                mode='subscription',
                 line_items=[
                     {
-                        'name': 'Abonnement Enea Club',
+                        # 'name': 'Abonnement Enea Club',
+                        'price': 'price_1IlDxzKJZrz0NpKj0GhPkDvu',
                         'quantity': 1,
-                        'currency': 'eur',
-                        'amount': '70900',
+                        # 'currency': 'eur',
+                        # 'amount': '70900',
                     }
                 ]
             )
