@@ -102,47 +102,50 @@
 <!--        <div class="col-sm-12">-->
 <!--            <button class="btn mb20 btn-medium btn-primary" type="submit">OK</button>-->
 <!--        </div>-->
+
+        <style>input[type="text"]{color: black;}</style>
+
         <div class="page" id="etape1">
             <h2>Projet</h2>
             <div class="col-sm-12">
                 <button style="margin-left: 91%" class="next btn mb20 btn-small btn-transparent-primary" type="button">Suivant</button>
             </div>
             <div class="col-sm-6">
-                <h4>Présentation du projet</h4>
+                <h4>Présentation du projet *</h4>
                 <div class="col-sm-3"><label for="projectName">Nom du projet </label></div>
-                <div class="col-sm-9"><input type="text" id="projectName" name="projectName"></div>
+                <div class="col-sm-9"><input required type="text" id="projectName" name="projectName"></div>
 
                 <div class="col-sm-3"><label for="projectDate">Date du besoin </label></div>
-                <div class="col-sm-9"><input type="text" id="projectDate" name="projectDate"></div>
+                <div class="col-sm-9"><input required type="text" id="projectDate" name="projectDate"></div>
 
                 <div class="col-sm-3"><label for="descProj">Description du projet</label></div>
-                <div class="col-sm-9"><textarea id="descProj" name="desc"></textarea></div>
+                <div class="col-sm-9"><textarea required id="descProj" name="desc"></textarea></div>
             </div>
 
             <div class="col-sm-6">
-                <h4>Présentation de l'équipe</h4>
+                <h4>Présentation de l'équipe *</h4>
                 <div class="col-sm-9"><label for="nbMembre">Nombre de membre </label></div>
-                <div class="col-sm-3"><input type="number" id="nbMembre" name="nbMembre"></div>
+                <div class="col-sm-3"><input required type="number" id="nbMembre" name="nbMembre"></div>
             </div>
 
             <div class="col-sm-6">
-                <h4>Notre analyse</h4>
-                <textarea name="presentationProjet"></textarea>
+                <h4>Notre analyse *</h4>
+                <textarea required name="presentationProjet"></textarea>
             </div>
 
             <div class="col-sm-6">
-                <h4>Les étapes de developpement</h4>
-                <textarea name="presentationProjet"></textarea>
+                <h4>Les étapes de developpement *</h4>
+                <textarea required name="presentationProjet"></textarea>
             </div>
 
             <div class="col-sm-6">
-                <h4>Stratégie de sortie envisageable</h4>
-                <textarea name="presentationProjet"></textarea>
+                <h4>Stratégie de sortie envisageable *</h4>
+                <textarea required name="presentationProjet"></textarea>
             </div>
 
             <div class="col-sm-6">
-                <h4>Usage des fonds</h4>
-                <textarea name="presentationProjet"></textarea>
+                <h4>Usage des fonds *</h4>
+                <textarea required name="presentationProjet"></textarea>
             </div>
         </div>
 
@@ -153,27 +156,27 @@
                 <button class="next btn mb20 btn-small btn-transparent-primary" type="button">Suivant</button>
             </div>
             <div class="col-sm-6">
-                <h5>Contact</h5>
+                <h5>Contact *</h5>
                 <div class="col-sm-3"><label for="prenom">Prénom </label></div>
-                <div class="col-sm-9"><input type="text" id="prenom" name="prenom"></div>
+                <div class="col-sm-9"><input required type="text" id="prenom" name="prenom"></div>
 
                 <div class="col-sm-3"><label for="nom">Nom </label></div>
-                <div class="col-sm-9"><input type="text" id="nom" name="nom"></div>
+                <div class="col-sm-9"><input required type="text" id="nom" name="nom"></div>
 
                 <div class="col-sm-3"><label for="email">Email </label></div>
-                <div class="col-sm-9"><input type="email" id="email" name="email"></div>
+                <div class="col-sm-9"><input required type="email" id="email" name="email"></div>
 
                 <div class="col-sm-3"><label for="tel">Téléphone </label></div>
-                <div class="col-sm-9"><input type="text" id="tel" name="tel"></div>
+                <div class="col-sm-9"><input required type="text" id="tel" name="tel"></div>
 
                 <div class="col-sm-3"><label for="siret">SIRET de la société </label></div>
-                <div class="col-sm-9"><input type="text" id="siret" name="siret"></div>
+                <div class="col-sm-9"><input required type="text" id="siret" name="siret"></div>
 
                 <div class="col-sm-3"><label for="fct">Fonction </label></div>
-                <div class="col-sm-9"><input type="text" id="fct" name="fct"></div>
+                <div class="col-sm-9"><input required type="text" id="fct" name="fct"></div>
             </div>
             <div class="col-sm-6">
-                <h5>Documents</h5>
+                <h5>Documents *</h5>
                 <div class="col-sm-6"><label for="societe">Présentation de la société</label></div>
                 <div class="col-sm-6"><input type="file" id="societe" name="societe"></div>
                 <br>
@@ -197,6 +200,10 @@
                 <button style="margin-left: 80%" class="prev btn mb20 btn-small btn-transparent-primary" type="button">Précédent</button>
                 <button class="next btn mb20 btn-small btn-transparent-primary" type="button">Suivant</button>
             </div>
+            <div class="col-sm-12">
+                <label for="news">News</label>
+                <textarea name="news" id="news"></textarea>
+            </div>
         </div>
 
         <div class="page" id="etape4">
@@ -205,6 +212,10 @@
                 <button style="margin-left: 80%" class="prev btn mb20 btn-small btn-transparent-primary" type="button">Précédent</button>
                 <button class="next btn mb20 btn-small btn-transparent-primary" type="button">Suivant</button>
             </div>
+            <div class="col-sm-12">
+                <label for="questions">Questions</label>
+                <textarea name="questions" id="questions"></textarea>
+            </div>
         </div>
 
         <div class="page" id="etape5">
@@ -212,6 +223,10 @@
             <div class="col-sm-12">
                 <button style="margin-left: 80%" class="prev btn mb20 btn-small btn-transparent-primary"  type="button">Précédent</button>
                 <button class="btn mb20 btn-small btn-primary">Valider</button>
+            </div>
+            <div class="col-sm-12">
+                <label for="temoignage">Témoignage</label>
+                <textarea name="temoignage" id="temoignage"></textarea>
             </div>
         </div>
     </form>

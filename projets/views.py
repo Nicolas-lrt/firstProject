@@ -24,16 +24,28 @@ def devenirPartenaire(request):
 
 
 def chartePage(request):
-    return render(request, 'projets/charte.html')
+    porteur = 0
+    for group in request.user.groups.all():
+        if group.name == 'porteur-investisseur':
+            porteur = 1
+    return render(request, 'projets/charte.html', {'porteur': porteur})
 
 
 def commentInvestir(request):
-    return render(request, 'projets/comment-investir.html')
+    porteur = 0
+    for group in request.user.groups.all():
+        if group.name == 'porteur-investisseur':
+            porteur = 1
+    return render(request, 'projets/comment-investir.html', {'porteur': porteur})
 
 
 @login_required(login_url='login')
 def pq_sabonner(request):
-    return render(request, 'projets/pourquoi_s-abonner.html')
+    porteur = 0
+    for group in request.user.groups.all():
+        if group.name == 'porteur-investisseur':
+            porteur = 1
+    return render(request, 'projets/pourquoi_s-abonner.html', {'porteur': porteur})
 
 
 @csrf_exempt

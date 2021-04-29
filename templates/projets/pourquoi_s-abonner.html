@@ -43,7 +43,11 @@
         <div class="container">
             <nav class="nav">
                 <ul class="sf-menu">
+                    {% if porteur == 1 %}
+                    <li><a href="{% url 'devenirPartenaire' %}">Espace partenaire</a></li>
+                    {% else %}
                     <li><a href="{% url 'devenirPartenaire' %}">Devenir partenaire</a></li>
+                    {% endif %}
                     <li><a href="{% url 'chartePage' %}">Charte</a></li>
                     <li><a href="{% url 'commentInvestir' %}">Comment investir</a></li>
                     <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>

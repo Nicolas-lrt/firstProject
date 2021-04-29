@@ -11,13 +11,19 @@
         </div>
     </div>
 </div>
+
+
 <!--navbar-->
 <div class="box-shadow-for-ui">
     <div class="uou-block-2b">
         <div class="container">
             <nav class="nav">
                 <ul class="sf-menu">
+                    {% if porteur == 1 %}
+                    <li><a href="{% url 'devenirPartenaire' %}">Espace partenaire</a></li>
+                    {% else %}
                     <li><a href="{% url 'devenirPartenaire' %}">Devenir partenaire</a></li>
+                    {% endif %}
                     <li><a href="{% url 'chartePage' %}">Charte</a></li>
                     <li><a href="{% url 'commentInvestir' %}">Comment investir</a></li>
                     <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
@@ -52,12 +58,6 @@
            class="btn mb20 btn-large btn-primary"
            href="{% url 'sabonner' %}">Devenir partenaire</a>
     {% endif %}
-
-            <!--Test-->
-            <a style="margin-left: 38%"
-               class="btn mb20 btn-large btn-primary"
-               href="{% url 'sabonner' %}">Devenir partenaire</a>
-            <!--Test-->
 
     <br>
     <h6>Lorem ipsum tederum salamus</h6>
