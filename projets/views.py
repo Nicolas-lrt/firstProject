@@ -1,4 +1,5 @@
 import stripe
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.http import JsonResponse
@@ -103,4 +104,21 @@ class CancelledView(TemplateView):
 def newPartner(request):
     partnerGroup = Group.objects.get(name='porteur-investisseur')
     request.user.groups.add(partnerGroup)
+    return redirect(request.META.get('HTTP_REFERER'))
+
+
+def cancel_subscription(request):
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    try:
+        stripe.Subscription.modify(
+            # 'subId',
+            cancel_at_period_end=True
+        )
+
+        group = Group.objects.get(name='porteur-investisseur')
+        group.user_set.remove(request.user)
+
+    except Exception as e:
+        messages.error(request, e)
+
     return redirect(request.META.get('HTTP_REFERER'))

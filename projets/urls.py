@@ -13,5 +13,6 @@ urlpatterns = [
     path('success/', views.SuccessView.as_view()),
     path('cancelled/', views.CancelledView.as_view()),
     path('partner/', views.newPartner),
+    path('cancelSub/', views.cancel_subscription, name='cancelSub'),
 
 ]
