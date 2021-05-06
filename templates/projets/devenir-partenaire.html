@@ -53,9 +53,7 @@
         <a style="margin-left: 38%"
            class="btn mb20 btn-large btn-primary"
            href="{% url 'addProject' %}">Apporter un projet</a>
-        <a style="margin-left: 36.4%"
-           class="btn mb20 btn-large btn-secondary"
-           href="{% url 'cancelSub' %}">Annuler l'abonnement</a>
+
     {% else %}
         <a style="margin-left: 38%"
            class="btn mb20 btn-large btn-primary"
@@ -64,20 +62,27 @@
 
 
         <!--test-->
-<!--        <a style="margin-left: 38%"-->
-<!--           class="btn mb20 btn-large btn-primary"-->
-<!--           href="{% url 'sabonner' %}">Devenir partenaire</a>-->
+        <a style="margin-left: 38%"
+           class="btn mb20 btn-large btn-primary"
+           href="{% url 'sabonner' %}">Devenir partenaire</a>
         <!--test-->
 
 
     <br>
-    {% for msg in messages %}
-    <p id="message">{{msg}}</p>
-    {% endfor %}
+
     <h6>Lorem ipsum tederum salamus</h6>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         Maiores explicabo numquam accusamus voluptatibus odit! Assumenda, tempore, dolorum explicabo iusto
         molestiae numquam laudantium vero doloremque neque quod id temporibus nemo nam itaque ratione.</p>
+
+    {% if porteur == 1 %}
+    <a style="margin-left: 36.8%"
+           class="btn mb20 btn-large btn-secondary"
+           href="{% url 'cancelSub' %}">Résilier l'abonnement</a>
+    {% endif %}
+    {% for msg in messages %}
+    <p id="message">{{msg}}</p>
+    {% endfor %}
 </div>
 
 {% endblock %}

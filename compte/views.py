@@ -6,7 +6,6 @@ from django.contrib.auth.forms import UserCreationForm
 from .decorators import unauthenticated_user
 from .forms import CreerUtilisateur
 from django.contrib import messages
-from membre.forms import ajout_form
 
 
 # Create your views here.
